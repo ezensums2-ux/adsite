@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | HTML 링크와 이미지</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/html-links.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+
+    <main class="html-links-page" aria-label="HTML 링크와 이미지 학습 페이지">
+      <!-- =========================
+           페이지 소개
+      ========================= -->
+      <section class="page-intro" aria-labelledby="lesson-title">
+        <p class="eyebrow">HTML 기초 · 03</p>
+        <h1 id="lesson-title">링크와 이미지</h1>
+        <p>링크는 다른 문서나 페이지로 이동하게 하고, 이미지는 정보를 더 풍부하게 전달합니다. 방문자는 태그만 보아도 의미를 이해할 수 있어요.</p>
+      </section>
+
+      <!-- =========================
+           HTML 기초 학습 메뉴
+      ========================= -->
+      <nav class="lesson-nav" aria-label="HTML 기초 학습 목록">
+        <div class="lesson-nav-header">
+          <span>HTML 기초</span>
+          <span class="lesson-nav-badge">현재 학습</span>
+        </div>
+        <ul class="lesson-nav-list">
+          <li><a class="lesson-link" href="html-basic.html">01 기본 문서 구조</a></li>
+          <li><a class="lesson-link" href="html-text.html">02 제목과 문단</a></li>
+          <li><a class="lesson-link is-current" href="html-links.html" aria-current="page">03 링크와 이미지</a></li>
+          <li><a class="lesson-link" href="html-lists.html">04 목록과 표</a></li>
+          <li><a class="lesson-link" href="html-forms.html">05 입력 폼과 버튼</a></li>
+          <li><a class="lesson-link" href="html-semantics.html">06 시맨틱 태그</a></li>
+        </ul>
+      </nav>
+
+      <!-- =========================
+           링크와 이미지 개념 설명
+      ========================= -->
+      <article class="lesson-card concept-card" aria-labelledby="concept-title">
+        <div class="section-heading">
+          <span class="section-badge">개념 설명</span>
+          <h2 id="concept-title">링크와 이미지는 문서에 어떤 힘을 줄까요?</h2>
+        </div>
+
+        <p class="lead-text">a 태그는 다른 페이지나 위치로 이동할 수 있게 하고, img 태그는 이미지를 화면에 보여 줍니다. 둘 다 문서의 의미를 확장하는 데 중요합니다.</p>
+
+        <div class="code-block" aria-label="링크와 이미지 예시 코드">
+          <pre><code>&lt;a href="https://example.com"&gt;예제 사이트로 이동&lt;/a&gt;
+&lt;img src="https://example.com/image.jpg" alt="예시 이미지"&gt;</code></pre>
+        </div>
+
+        <div class="tag-guide" aria-label="링크와 이미지 태그 설명">
+          <div class="tag-item">
+            <span class="tag-name">a</span>
+            <p>href 속성으로 이동할 주소를 지정합니다. 텍스트나 이미지를 클릭해서 다른 페이지로 넘어갈 수 있게 해 줍니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">img</span>
+            <p>src 속성으로 이미지 경로를 넣고, alt 속성으로 이미지 설명을 제공합니다. 시각 장애 사용자에게도 의미를 전달합니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">href</span>
+            <p>링크의 목적지 URL을 넣는 속성입니다. 웹 페이지, 이메일, 파일, 같은 문서의 위치 등을 가리킬 수 있습니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">alt</span>
+            <p>이미지가 보이지 않을 때 대신 보여 줄 설명입니다. 이미지를 이해하는 데 꼭 필요한 정보를 담아야 합니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- =========================
+           직접 실습 영역
+      ========================= -->
+      <section class="lesson-card practice-card" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <span class="section-badge">직접 실습</span>
+          <h2 id="practice-title">링크와 이미지 설정을 바꿔보세요</h2>
+        </div>
+
+        <div class="practice-layout">
+          <div class="editor-panel">
+            <div class="field-group">
+              <label for="link-text">링크 문구</label>
+              <input id="link-text" class="text-input" type="text" value="스타일 노트 보러가기" maxlength="80">
+            </div>
+
+            <div class="field-group">
+              <label for="link-href">링크 주소</label>
+              <input id="link-href" class="text-input" type="url" value="https://example.com" maxlength="200">
+            </div>
+
+            <div class="field-group">
+              <label for="image-alt">이미지 대체 텍스트</label>
+              <input id="image-alt" class="text-input" type="text" value="스타일 노트 포스터" maxlength="80">
+            </div>
+
+            <div class="field-group">
+              <label for="image-src">이미지 주소</label>
+              <input id="image-src" class="text-input" type="url" value="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" maxlength="240">
+            </div>
+
+            <button class="button button-secondary reset-button" id="reset-practice" type="button">실습 초기화</button>
+          </div>
+
+          <div class="preview-panel" aria-labelledby="preview-title">
+            <div class="browser-shell" aria-label="HTML 결과 미리보기">
+              <div class="browser-bar">
+                <span class="traffic-dot red" aria-hidden="true"></span>
+                <span class="traffic-dot yellow" aria-hidden="true"></span>
+                <span class="traffic-dot green" aria-hidden="true"></span>
+                <span class="browser-tab" id="preview-title">링크와 이미지</span>
+              </div>
+              <div class="browser-body">
+                <div id="preview-content" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+           생성 HTML 코드
+      ========================= -->
+      <section class="lesson-card code-card" aria-labelledby="code-title">
+        <div class="section-heading">
+          <span class="section-badge">코드 확인</span>
+          <h2 id="code-title">생성된 HTML 코드</h2>
+        </div>
+
+        <div class="code-header">
+          <span>완성된 HTML</span>
+          <button class="copy-button" id="copy-html-code" type="button">HTML 코드 복사</button>
+        </div>
+        <textarea id="generated-html" class="code-output" rows="14" readonly aria-label="생성된 HTML 코드"></textarea>
+        <p class="copy-status" id="html-copy-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- =========================
+           작은 연습
+      ========================= -->
+      <section class="lesson-card exercise-card" aria-labelledby="exercise-title">
+        <div class="section-heading">
+          <span class="section-badge">작은 연습</span>
+          <h2 id="exercise-title">작은 연습</h2>
+        </div>
+
+        <ol class="exercise-list">
+          <li>링크 문구를 “공부 자료 바로가기”로 바꿔보세요.</li>
+          <li>링크 주소를 다른 웹페이지 주소로 바꾸어 보세요.</li>
+          <li>이미지 대체 텍스트를 자신이 설명하고 싶은 문장으로 바꿔보세요.</li>
+          <li>이미지 주소를 다른 사진 URL로 바꿔서 화면을 살펴보세요.</li>
+        </ol>
+      </section>
+
+      <!-- =========================
+           학습 포인트
+      ========================= -->
+      <section class="lesson-card summary-card" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <span class="section-badge">학습 포인트</span>
+          <h2 id="summary-title">오늘 기억할 것</h2>
+        </div>
+
+        <ul class="summary-list">
+          <li>a 태그는 이동할 주소를 href로 지정합니다.</li>
+          <li>img 태그는 이미지 경로를 src로 넣습니다.</li>
+          <li>alt는 이미지를 설명하는 텍스트입니다.</li>
+          <li>링크와 이미지는 문서의 의미와 정보 전달력을 높여 줍니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "html",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html" },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html" },
+        { "id": "css", "label": "CSS 기초", "status": "학습 중", "children": [{ "id": "css-basics", "label": "01 연결 방법과 선택자", "href": "css-basics.html" }, { "id": "css-priority", "label": "02 우선순위와 상속", "href": "css-priority.html" }, { "id": "css-colors-units", "label": "03 색상과 단위", "href": "css-colors-units.html" }, { "id": "css-font-text", "label": "04 글꼴과 텍스트", "href": "css-font-text.html" }, { "id": "css-box-model", "label": "05 박스 모델", "href": "css-box-model.html" }, { "id": "css-backgrounds", "label": "06 배경과 이미지", "href": "css-backgrounds.html" }] },
+
+        { "id": "layout", "label": "레이아웃", "status": "준비 중", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "status": "준비 중", "children": [] },
+        { "id": "examples", "label": "실전 예제", "status": "준비 중", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/html-links.js"></script>
+</body>
+</html>

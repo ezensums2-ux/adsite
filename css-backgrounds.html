@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | CSS 배경과 이미지</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/css-backgrounds.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "css",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html", "children": [] },
+        {
+          "id": "css",
+          "label": "CSS 기초",
+          "status": "학습 중",
+          "children": [
+            { "id": "css-basics", "label": "01 연결 방법과 선택자", "href": "css-basics.html" },
+            { "id": "css-priority", "label": "02 우선순위와 상속", "href": "css-priority.html" },
+            { "id": "css-colors-units", "label": "03 색상과 단위", "href": "css-colors-units.html" },
+            { "id": "css-font-text", "label": "04 글꼴과 텍스트", "href": "css-font-text.html" },
+            { "id": "css-box-model", "label": "05 박스 모델", "href": "css-box-model.html" },
+            { "id": "css-backgrounds", "label": "06 배경과 이미지", "href": "css-backgrounds.html" }
+          ]
+        },
+        { "id": "layout", "label": "레이아웃", "status": "준비 중", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "status": "준비 중", "children": [] },
+        { "id": "examples", "label": "실전 예제", "status": "준비 중", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+
+    <main class="css-backgrounds-page" aria-label="CSS 배경과 이미지 학습 페이지">
+      <section class="page-intro" aria-labelledby="lesson-title">
+        <p class="eyebrow">CSS 기초 · 06</p>
+        <h1 id="lesson-title">배경과 이미지</h1>
+        <p>배경색과 그라데이션을 만들고 이미지를 상자에 맞추는 방법을 살펴보세요.<br><code>background-size</code>와 <code>object-fit</code>을 바꿔 결과를 비교할 수 있습니다.</p>
+      </section>
+
+      <nav class="lesson-nav" aria-label="CSS 기초 학습 목록">
+        <div class="lesson-nav-header">
+          <span>CSS 기초</span>
+          <span class="lesson-nav-badge">현재 학습</span>
+        </div>
+        <ul class="lesson-nav-list">
+          <li><a class="lesson-link" href="css-basics.html">01 연결 방법과 선택자</a></li>
+          <li><a class="lesson-link" href="css-priority.html">02 우선순위와 상속</a></li>
+          <li><a class="lesson-link" href="css-colors-units.html">03 색상과 단위</a></li>
+          <li><a class="lesson-link" href="css-font-text.html">04 글꼴과 텍스트</a></li>
+          <li><a class="lesson-link" href="css-box-model.html">05 박스 모델</a></li>
+          <li><a class="lesson-link is-current" href="css-backgrounds.html" aria-current="page">06 배경과 이미지</a></li>
+          <li><a class="lesson-link" href="css-display-position.html">07 display와 position</a></li>
+        </ul>
+      </nav>
+
+      <article class="lesson-card concept-card" aria-labelledby="concept-title">
+        <div class="section-heading">
+          <span class="section-badge">개념 설명</span>
+          <h2 id="concept-title">배경과 이미지에 자주 쓰는 속성</h2>
+        </div>
+        <p class="lead-text"><code>background-color</code>는 배경색을 지정하고, <code>background-image</code>는 이미지나 그라데이션을 배경으로 표시합니다. 이미지 배경은 <code>background-size</code>, <code>background-position</code>, <code>background-repeat</code>으로 배치할 수 있습니다. 콘텐츠 이미지에는 <code>object-fit</code>을 사용합니다.</p>
+        <div class="tag-guide" aria-label="배경과 이미지 속성 설명">
+          <div class="tag-item">
+            <span class="tag-name">background-image</span>
+            <p>이미지 주소나 linear-gradient, radial-gradient를 배경으로 표시합니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">background-size</span>
+            <p><code>cover</code>는 빈틈없이 채우고, <code>contain</code>은 이미지 전체가 보이도록 맞춥니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">background-position</span>
+            <p>상자 안에서 배경 이미지가 놓일 위치를 정합니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">object-fit</span>
+            <p><code>&lt;img&gt;</code> 같은 콘텐츠 이미지를 정해진 상자에 맞추는 방법입니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <section class="lesson-card practice-card" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <span class="section-badge">직접 실습</span>
+          <h2 id="practice-title">배경과 이미지 배치를 바꿔 보세요</h2>
+        </div>
+
+        <div class="practice-layout">
+          <div class="editor-panel">
+            <div class="field-group">
+              <label for="background-type">배경 종류</label>
+              <select id="background-type" class="text-input">
+                <option value="solid">단색</option>
+                <option value="linear">선형 그라데이션</option>
+                <option value="radial">원형 그라데이션</option>
+                <option value="image">이미지</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="background-color">배경색 / 그라데이션 시작 색</label>
+              <input id="background-color" class="color-input" type="color" value="#6546c8">
+            </div>
+            <div class="field-group" id="end-color-field">
+              <label for="end-color">그라데이션 끝 색</label>
+              <input id="end-color" class="color-input" type="color" value="#f0abfc">
+            </div>
+            <div class="field-group" id="angle-field">
+              <label for="gradient-angle">선형 그라데이션 각도</label>
+              <input id="gradient-angle" class="text-input" type="number" min="0" max="360" value="135" inputmode="numeric">
+            </div>
+            <div class="field-group">
+              <label for="background-size">배경 크기</label>
+              <select id="background-size" class="text-input">
+                <option value="cover">cover — 빈틈없이 채우기</option>
+                <option value="contain">contain — 이미지 전체 보이기</option>
+                <option value="auto">auto — 원래 크기</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="background-position">배경 위치</label>
+              <select id="background-position" class="text-input">
+                <option value="center">가운데</option>
+                <option value="top">위쪽</option>
+                <option value="bottom">아래쪽</option>
+                <option value="left">왼쪽</option>
+                <option value="right">오른쪽</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="background-repeat">배경 반복</label>
+              <select id="background-repeat" class="text-input">
+                <option value="no-repeat">반복하지 않음</option>
+                <option value="repeat">반복</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="object-fit">콘텐츠 이미지 맞춤 (object-fit)</label>
+              <select id="object-fit" class="text-input">
+                <option value="cover">cover — 상자를 채우고 잘라내기</option>
+                <option value="contain">contain — 이미지 전체 표시</option>
+                <option value="fill">fill — 상자에 맞게 늘이기</option>
+              </select>
+            </div>
+            <button class="button button-secondary reset-button" id="reset-practice" type="button">실습 초기화</button>
+          </div>
+
+          <div class="preview-panel" aria-labelledby="preview-title">
+            <div class="browser-shell" aria-label="배경과 이미지 결과 미리보기">
+              <div class="browser-bar">
+                <span class="traffic-dot red" aria-hidden="true"></span>
+                <span class="traffic-dot yellow" aria-hidden="true"></span>
+                <span class="traffic-dot green" aria-hidden="true"></span>
+                <span class="browser-tab" id="preview-title">배경 이미지 미리보기</span>
+              </div>
+              <div class="browser-body">
+                <div class="live-preview" id="live-preview" aria-live="polite">
+                  <div class="demo-card" id="background-demo">
+                    <p>CSS 배경 이미지</p>
+                  </div>
+                  <section class="image-example">
+                    <h3 id="image-fit-label">콘텐츠 이미지 · object-fit: cover</h3>
+                    <img id="sample-image" alt="보라색 하늘과 언덕이 있는 실습용 풍경">
+                  </section>
+                  <p class="property-note" id="property-note"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-card code-card" aria-labelledby="code-title">
+        <div class="section-heading">
+          <span class="section-badge">코드 확인</span>
+          <h2 id="code-title">생성된 HTML과 CSS</h2>
+        </div>
+        <div class="code-header">
+          <span>현재 배경과 이미지 설정</span>
+          <button class="copy-button" id="copy-code" type="button">코드 복사</button>
+        </div>
+        <textarea id="generated-code" class="code-output" rows="20" readonly aria-label="생성된 HTML 및 CSS 코드"></textarea>
+        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="lesson-card exercise-card" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <span class="section-badge">정리</span>
+          <h2 id="summary-title">기억해 두세요</h2>
+        </div>
+        <ul class="summary-list">
+          <li>단색 배경은 <code>background-color</code>, 그라데이션이나 배경 그림은 <code>background-image</code>로 지정합니다.</li>
+          <li><code>cover</code>는 영역을 채우고, <code>contain</code>은 이미지 전체가 보이도록 합니다.</li>
+          <li><code>object-fit</code>은 이미지 요소 자체가 상자 안에 맞춰지는 방식을 정합니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/css-backgrounds.js"></script>
+</body>
+</html>

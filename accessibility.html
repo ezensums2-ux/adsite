@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>웹 접근성 | 스타일 노트</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/learning-tools.css">
+</head>
+<body>
+  <div class="page-shell">
+    <!-- 모든 페이지에서 공통 헤더와 탐색 메뉴를 불러옵니다. -->
+    <div id="site-header"></div>
+    <!-- 웹 접근성의 올바른 사용과 잘못된 사용을 비교하는 학습 영역입니다. -->
+    <main class="learning-main">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">ACCESSIBLE BY DESIGN</p>
+        <h1 id="page-title">웹 접근성</h1>
+        <p>누구나 다양한 기기와 방법으로 웹 콘텐츠를 이용할 수 있도록 만드는 기본을 배웁니다.</p>
+      </section>
+      <section class="learning-section" id="intro">
+        <h2>웹 접근성이란?</h2>
+        <p>웹 접근성은 장애 여부나 사용 환경과 관계없이 정보와 기능에 접근할 수 있도록 하는 것입니다. 올바른 HTML 요소를 쓰는 것이 가장 좋은 출발점이에요.</p>
+      </section>
+      <section class="learning-section" id="contrast">
+        <h2>색상 대비 계산기</h2>
+        <p>WCAG 기준으로 일반 텍스트 4.5:1, 큰 텍스트 3:1 이상을 권장합니다.</p>
+        <div class="learning-fields">
+          <label class="learning-field" for="contrast-background">Background
+            <input id="contrast-background" type="color" value="#ffffff">
+          </label>
+          <label class="learning-field" for="contrast-text">Text
+            <input id="contrast-text" type="color" value="#aaaaaa">
+          </label>
+        </div>
+        <div class="learning-preview" id="contrast-preview"><span id="contrast-preview-text">대비 미리보기 문장</span></div>
+        <output class="learning-result" id="contrast-result" aria-live="polite">Contrast Ratio 2.32 : 1</output>
+        <p class="learning-status" id="contrast-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="learning-section" id="alt">
+        <h2>이미지 alt</h2>
+        <div class="comparison-grid">
+          <div class="comparison-example bad"><strong>잘못된 예</strong><p>이미지의 정보를 대체 텍스트 없이 제공합니다.</p><code>&lt;img src="chart.png"&gt;</code></div>
+          <div class="comparison-example good"><strong>올바른 예</strong><p>정보를 전달하는 이미지에는 의미를 설명하는 대체 텍스트를 씁니다.</p><code>&lt;img src="chart.png" alt="월별 매출 그래프"&gt;</code></div>
+        </div>
+      </section>
+      <section class="learning-section" id="controls">
+        <h2>Button과 Link</h2>
+        <div class="comparison-grid">
+          <div class="comparison-example bad"><strong>잘못된 예</strong><p>클릭할 수 있어 보이지만 키보드 조작이나 의미를 제공하지 않습니다.</p><span class="button">더 알아보기</span></div>
+          <div class="comparison-example good"><strong>올바른 예</strong><p>페이지 이동은 링크, 동작 실행은 버튼을 사용합니다.</p><a href="#labels">폼 학습으로 이동</a></div>
+        </div>
+      </section>
+      <section class="learning-section" id="labels">
+        <h2>Label과 Input</h2>
+        <div class="comparison-grid">
+          <div class="comparison-example bad"><strong>잘못된 예</strong><p><code>&lt;input placeholder="이름"&gt;</code> placeholder만으로 입력 목적을 설명하지 마세요.</p></div>
+          <div class="comparison-example good"><strong>올바른 예</strong><label for="demo-name">이름</label><input id="demo-name" type="text" autocomplete="name"></div>
+        </div>
+      </section>
+      <section class="learning-section" id="keyboard">
+        <h2>키보드 접근성</h2>
+        <p>Tab으로 이동하고 Enter 또는 Space로 실행할 수 있도록 네이티브 링크와 버튼을 우선 사용합니다.</p>
+        <div class="learning-actions"><button class="button button-secondary" type="button">키보드로 포커스해보세요</button></div>
+      </section>
+      <section class="learning-section" id="focus">
+        <h2>Focus</h2><p>현재 키보드 위치를 나타내는 포커스 표시를 제거하지 말고 충분히 눈에 띄게 유지합니다. 위 버튼에 Tab 키로 이동해 보세요.</p>
+      </section>
+      <section class="learning-section" id="heading">
+        <h2>Heading 구조</h2><p>페이지 제목은 h1, 하위 주제는 h2, 세부 주제는 h3 순서로 계층을 표현합니다. 글자 크기만을 위해 제목 단계를 건너뛰지 마세요.</p>
+      </section>
+      <section class="learning-section" id="aria">
+        <h2>ARIA 기초</h2><p>기본 HTML 의미가 부족할 때 aria-label, aria-expanded, aria-live 등으로 이름과 상태를 보완합니다. ARIA는 잘못된 HTML 요소를 대신하지 않습니다.</p>
+      </section>
+      <section class="learning-section" id="checklist">
+        <h2>접근성 체크리스트</h2><ul><li>이미지에 목적에 맞는 alt가 있는가?</li><li>키보드만으로 모든 기능을 사용할 수 있는가?</li><li>포커스 위치가 분명하게 보이는가?</li><li>텍스트와 배경의 대비가 충분한가?</li><li>제목과 폼 레이블이 올바르게 연결됐는가?</li></ul>
+      </section>
+    </main>
+    <!-- 공통 푸터는 페이지 설정을 바탕으로 JavaScript가 생성합니다. -->
+    <div id="site-footer"></div>
+  </div>
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"a11y-contrast","footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/learning-tools.js"></script>
+</body>
+</html>

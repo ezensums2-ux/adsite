@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | 페이지 패턴 예제</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/examples.css">
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"examples","footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main class="examples-lesson-page pattern-page">
+      <section class="examples-page-intro" aria-labelledby="page-title">
+        <p class="eyebrow">실전 예제 · PAGE PATTERNS</p>
+        <h1 id="page-title">페이지 패턴 만들기</h1>
+        <p>Hero, Footer, 로그인 폼, Portfolio, Landing Page의 구조를 살펴보고 각 예제의 HTML과 CSS를 복사해 활용해보세요.</p>
+      </section>
+      <nav class="examples-lesson-nav" aria-label="페이지 패턴 예제">
+        <div class="examples-lesson-nav-heading"><span>페이지 패턴</span><a href="examples.html">실전 예제 전체 목록</a></div>
+        <ul class="examples-lesson-nav-list">
+          <li><a class="examples-lesson-link" href="#hero">Hero Section</a></li>
+          <li><a class="examples-lesson-link" href="#footer">Footer</a></li>
+          <li><a class="examples-lesson-link" href="#login">Login</a></li>
+          <li><a class="examples-lesson-link" href="#portfolio">Portfolio</a></li>
+          <li><a class="examples-lesson-link" href="#landing">Landing Page</a></li>
+        </ul>
+      </nav>
+
+      <article class="examples-lesson-card learning-section pattern-section" id="hero">
+        <span class="examples-section-label">01 · HERO SECTION</span>
+        <h2>첫 화면에서 핵심과 행동을 보여주세요</h2>
+        <p>짧은 설명과 분명한 제목, 하나의 주요 행동을 묶어 방문자가 다음 단계를 바로 이해하도록 합니다.</p>
+        <section class="pattern-preview hero-preview" aria-label="Hero 섹션 미리보기">
+          <span class="pattern-kicker">작은 팀을 위한 계획 도구</span>
+          <h3>좋은 아이디어를<br>계획으로 바꾸세요</h3>
+          <p>팀의 다음 목표를 한곳에서 정리하고 함께 실행해보세요.</p>
+          <a class="pattern-primary-link" href="#portfolio">작업 사례 보기</a>
+        </section>
+        <div class="examples-code-header"><span>Hero HTML + CSS</span><button class="examples-copy-button" type="button" data-learning-copy="hero-code">코드 복사</button></div>
+        <textarea class="examples-code-output" id="hero-code" rows="13" readonly aria-label="Hero 섹션 예제 코드"><section class="hero">
+  <p class="eyebrow">작은 팀을 위한 계획 도구</p>
+  <h1>좋은 아이디어를 계획으로 바꾸세요</h1>
+  <p>팀의 다음 목표를 한곳에서 정리하고 함께 실행해보세요.</p>
+  <a class="button" href="#work">작업 사례 보기</a>
+</section>
+
+.hero { padding: 4rem 2rem; text-align: center; background: #f3efff; }
+.hero h1 { max-width: 18ch; margin: .7rem auto; font-size: clamp(2rem, 5vw, 3.5rem); }
+.hero p { color: #625c70; }
+.hero .button { display: inline-block; margin-top: 1rem; padding: .8rem 1.2rem; border-radius: 999px; background: #6546c8; color: white; }</textarea>
+        <p class="learning-status" role="status" aria-live="polite"></p>
+      </article>
+
+      <article class="examples-lesson-card learning-section pattern-section" id="footer">
+        <span class="examples-section-label">02 · FOOTER</span>
+        <h2>페이지 끝에서 정보와 이동 경로를 정리하세요</h2>
+        <p>관련 링크를 주제별로 묶고 저작권이나 연락처처럼 보조 정보를 함께 제공합니다.</p>
+        <footer class="pattern-preview footer-preview">
+          <div><strong class="pattern-brand">STUDIO NOTE</strong><p>배움과 아이디어를 연결하는 작은 디자인 스튜디오</p></div>
+          <nav aria-label="Footer 링크"><a href="#hero">소개</a><a href="#portfolio">프로젝트</a><a href="mailto:hello@example.com">문의</a></nav>
+          <small>© 2026 Studio Note. All rights reserved.</small>
+        </footer>
+        <div class="examples-code-header"><span>Footer HTML + CSS</span><button class="examples-copy-button" type="button" data-learning-copy="footer-code">코드 복사</button></div>
+        <textarea class="examples-code-output" id="footer-code" rows="12" readonly aria-label="Footer 예제 코드"><footer class="site-footer">
+  <div>
+    <a class="brand" href="/">STUDIO NOTE</a>
+    <p>배움과 아이디어를 연결하는 작은 디자인 스튜디오</p>
+  </div>
+  <nav aria-label="Footer 링크">
+    <a href="/about">소개</a>
+    <a href="/work">프로젝트</a>
+    <a href="mailto:hello@example.com">문의</a>
+  </nav>
+  <small>© 2026 Studio Note. All rights reserved.</small>
+</footer>
+
+.site-footer { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; padding: 2rem; background: #211e2a; color: #fff; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+.site-footer a { color: inherit; }
+.site-footer small { grid-column: 1 / -1; color: #c9c3d3; }</textarea>
+        <p class="learning-status" role="status" aria-live="polite"></p>
+      </article>
+
+      <article class="examples-lesson-card learning-section pattern-section" id="login">
+        <span class="examples-section-label">03 · LOGIN</span>
+        <h2>명확한 레이블과 피드백이 있는 로그인 폼</h2>
+        <p>각 입력 필드에 연결된 레이블을 제공하고, 브라우저 기본 검증으로 필수 입력을 확인합니다.</p>
+        <form class="pattern-preview login-preview" id="login-demo">
+          <span class="pattern-kicker">다시 만나 반가워요</span>
+          <label for="demo-email">이메일</label>
+          <input id="demo-email" type="email" autocomplete="username" placeholder="name@example.com" required>
+          <label for="demo-password">비밀번호</label>
+          <input id="demo-password" type="password" autocomplete="current-password" minlength="8" placeholder="8자 이상 입력" required>
+          <button class="pattern-primary-link" type="submit">로그인</button>
+          <p class="login-status" id="login-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="examples-code-header"><span>Login HTML + CSS</span><button class="examples-copy-button" type="button" data-learning-copy="login-code">코드 복사</button></div>
+        <textarea class="examples-code-output" id="login-code" rows="14" readonly aria-label="로그인 폼 예제 코드"><form class="login-form">
+  <label for="email">이메일</label>
+  <input id="email" type="email" autocomplete="username" required>
+  <label for="password">비밀번호</label>
+  <input id="password" type="password" minlength="8" autocomplete="current-password" required>
+  <button type="submit">로그인</button>
+</form>
+
+.login-form { display: grid; gap: .7rem; max-width: 24rem; padding: 1.5rem; border: 1px solid #e5e1eb; border-radius: 1rem; }
+.login-form label { font-weight: 700; }
+.login-form input { min-height: 2.7rem; padding: .6rem; border: 1px solid #cbc6d4; border-radius: .4rem; }
+.login-form button { min-height: 2.7rem; border: 0; border-radius: .4rem; background: #6546c8; color: white; }</textarea>
+        <p class="learning-status" role="status" aria-live="polite"></p>
+      </article>
+
+      <article class="examples-lesson-card learning-section pattern-section" id="portfolio">
+        <span class="examples-section-label">04 · PORTFOLIO</span>
+        <h2>작업물은 일관된 카드와 그리드로 비교해 보여주세요</h2>
+        <p>프로젝트마다 역할과 결과를 간단히 표시하면 방문자가 작업의 맥락을 빠르게 살펴볼 수 있습니다.</p>
+        <section class="pattern-preview portfolio-preview" aria-label="Portfolio 미리보기">
+          <article class="portfolio-card"><div class="portfolio-art art-one" aria-hidden="true">01</div><span>PRODUCT DESIGN</span><h3>일상의 기록</h3><p>모바일 앱 · UX/UI 디자인</p></article>
+          <article class="portfolio-card"><div class="portfolio-art art-two" aria-hidden="true">02</div><span>BRAND SYSTEM</span><h3>새로운 시작</h3><p>브랜드 아이덴티티 · 웹</p></article>
+          <article class="portfolio-card"><div class="portfolio-art art-three" aria-hidden="true">03</div><span>WEB EXPERIENCE</span><h3>동네의 발견</h3><p>반응형 웹 · 인터랙션</p></article>
+        </section>
+        <div class="examples-code-header"><span>Portfolio HTML + CSS</span><button class="examples-copy-button" type="button" data-learning-copy="portfolio-code">코드 복사</button></div>
+        <textarea class="examples-code-output" id="portfolio-code" rows="14" readonly aria-label="Portfolio 예제 코드"><section class="portfolio" aria-labelledby="work-title">
+  <h2 id="work-title">Selected Work</h2>
+  <div class="project-grid">
+    <article class="project-card">
+      <div class="project-art" aria-hidden="true"></div>
+      <p>PRODUCT DESIGN</p>
+      <h3>일상의 기록</h3>
+      <span>모바일 앱 · UX/UI 디자인</span>
+    </article>
+  </div>
+</section>
+
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+.project-card { overflow: hidden; padding: 1rem; border: 1px solid #e5e1eb; border-radius: .8rem; }
+.project-art { min-height: 10rem; border-radius: .5rem; background: linear-gradient(135deg, #dcefeb, #d8d0f2); }
+.project-card p { margin: 1rem 0 .4rem; color: #6546c8; font-size: .7rem; font-weight: 800; }
+.project-card h3 { margin: 0; }</textarea>
+        <p class="learning-status" role="status" aria-live="polite"></p>
+      </article>
+
+      <article class="examples-lesson-card learning-section pattern-section" id="landing">
+        <span class="examples-section-label">05 · LANDING PAGE</span>
+        <h2>하나의 목표를 향해 페이지 흐름을 설계하세요</h2>
+        <p>첫 소개에서 시작해 혜택과 사회적 증거를 보여준 뒤 명확한 행동 버튼으로 이어집니다.</p>
+        <div class="pattern-preview landing-preview">
+          <header><a class="pattern-brand" href="#landing">FLOW / WORK</a><a href="#landing-cta">시작하기</a></header>
+          <section class="landing-hero"><span class="pattern-kicker">TEAMWORK, MADE CLEAR</span><h3>팀의 좋은 흐름을<br>매일 이어가세요</h3><p>할 일과 아이디어를 한곳에서 정리하고 함께 성장하세요.</p><a class="pattern-primary-link" href="#landing-cta">무료로 시작하기</a></section>
+          <section class="landing-benefits" aria-label="서비스 장점"><div><strong>한눈에 정리</strong><span>중요한 일이 선명해집니다.</span></div><div><strong>함께 실행</strong><span>팀의 진행 상황을 공유합니다.</span></div><div><strong>꾸준히 개선</strong><span>작은 성과를 쌓아갑니다.</span></div></section>
+          <p class="landing-cta" id="landing-cta">다음 프로젝트를 시작할 준비가 되었나요?</p>
+        </div>
+        <div class="examples-code-header"><span>Landing Page HTML + CSS</span><button class="examples-copy-button" type="button" data-learning-copy="landing-code">코드 복사</button></div>
+        <textarea class="examples-code-output" id="landing-code" rows="16" readonly aria-label="랜딩 페이지 예제 코드"><main>
+  <section class="hero">
+    <p>TEAMWORK, MADE CLEAR</p>
+    <h1>팀의 좋은 흐름을 매일 이어가세요</h1>
+    <p>할 일과 아이디어를 한곳에서 정리하고 함께 성장하세요.</p>
+    <a href="#signup">무료로 시작하기</a>
+  </section>
+  <section class="benefits" aria-label="서비스 장점">
+    <article><h2>한눈에 정리</h2><p>중요한 일이 선명해집니다.</p></article>
+    <article><h2>함께 실행</h2><p>팀의 진행 상황을 공유합니다.</p></article>
+    <article><h2>꾸준히 개선</h2><p>작은 성과를 쌓아갑니다.</p></article>
+  </section>
+  <section id="signup"><h2>다음 프로젝트를 시작할 준비가 되었나요?</h2></section>
+</main>
+
+.hero { padding: clamp(2rem, 8vw, 6rem) 1.5rem; text-align: center; background: #f3efff; }
+.hero h1 { max-width: 18ch; margin: .8rem auto; font-size: clamp(2rem, 5vw, 3.5rem); }
+.benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; padding: 2rem 0; }
+.benefits article { padding: 1.2rem; border: 1px solid #e5e1eb; border-radius: .8rem; }
+#signup { padding: 2rem; text-align: center; background: #211e2a; color: white; }</textarea>
+        <p class="learning-status" role="status" aria-live="polite"></p>
+      </article>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/learning-tools.js"></script>
+  <script>
+    document.getElementById('login-demo').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('login-status').textContent = '입력 형식이 확인되었습니다. 이 예제는 실제 계정에 로그인하지 않습니다.';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>개발 도구 | 스타일 노트</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/learning-tools.css">
+</head>
+<body>
+  <div class="page-shell">
+    <!-- 공통 헤더와 현재 페이지 메뉴를 표시합니다. -->
+    <div id="site-header"></div>
+    <!-- 입력값, 계산 결과, 복사 기능을 모은 개발 도구입니다. -->
+    <main class="learning-main">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">FRONTEND DEVELOPER TOOLS</p>
+        <h1 id="page-title">자주 쓰는 계산 도구</h1>
+        <p>값을 바꾸면 결과와 복사할 코드가 바로 업데이트됩니다.</p>
+      </section>
+
+      <section class="learning-grid developer-tools-grid" aria-label="개발 도구">
+        <article class="learning-section" id="px-rem">
+          <h2>PX → REM 변환기</h2>
+          <p>기준 글자 크기를 바꾸어도 rem 값이 즉시 다시 계산돼요.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="rem-base">Base Font Size (px)
+              <input id="rem-base" type="number" min="1" step="1" value="16">
+            </label>
+            <label class="learning-field" for="px-value">PX
+              <input id="px-value" type="number" step="1" value="32">
+            </label>
+          </div>
+          <output class="learning-result" id="px-rem-result" aria-live="polite">2rem</output>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="px-rem-result">결과 복사</button>
+          </div>
+          <p class="learning-status" id="px-rem-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="rem-px">
+          <h2>REM → PX 변환기</h2>
+          <p>1rem은 기본 글자 크기만큼의 크기를 의미합니다.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="rem-base-reverse">Base Font Size (px)
+              <input id="rem-base-reverse" type="number" min="1" step="1" value="16">
+            </label>
+            <label class="learning-field" for="rem-value">REM
+              <input id="rem-value" type="number" min="0" step="0.1" value="2">
+            </label>
+          </div>
+          <output class="learning-result" id="rem-px-result" aria-live="polite">32px</output>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="rem-px-result">결과 복사</button>
+          </div>
+          <p class="learning-status" id="rem-px-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="clamp">
+          <h2>CSS Clamp 생성기</h2>
+          <p>Preferred 값은 뷰포트 기준으로 변환합니다. 1200px 화면에서 24px은 2vw예요.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="clamp-min">Minimum (px)
+              <input id="clamp-min" type="number" min="0" step="1" value="16">
+            </label>
+            <label class="learning-field" for="clamp-preferred">Preferred (px)
+              <input id="clamp-preferred" type="number" min="0" step="1" value="24">
+            </label>
+            <label class="learning-field" for="clamp-max">Maximum (px)
+              <input id="clamp-max" type="number" min="0" step="1" value="40">
+            </label>
+          </div>
+          <output class="learning-result" id="clamp-result" aria-live="polite">font-size: clamp(16px, 2vw, 40px);</output>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="clamp-result">CSS 복사</button>
+          </div>
+          <p class="learning-status" id="clamp-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="aspect-ratio">
+          <h2>Aspect Ratio 계산기</h2>
+          <p>가로와 세로의 최대공약수로 가장 간단한 비율을 구합니다.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="ratio-width">Width
+              <input id="ratio-width" type="number" min="1" step="1" value="1920">
+            </label>
+            <label class="learning-field" for="ratio-height">Height
+              <input id="ratio-height" type="number" min="1" step="1" value="1080">
+            </label>
+          </div>
+          <output class="learning-result" id="ratio-result" aria-live="polite">16 : 9</output>
+        </article>
+
+        <article class="learning-section" id="url">
+          <h2>URL Encode / Decode</h2>
+          <p>URL에 넣을 텍스트를 인코딩하거나 percent 인코딩된 문자열을 디코딩합니다.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="url-mode">작업
+              <select id="url-mode">
+                <option value="encode">인코딩</option>
+                <option value="decode">디코딩</option>
+              </select>
+            </label>
+            <label class="learning-field" for="url-input">입력
+              <input id="url-input" type="text" value="스타일 노트 & HTML">
+            </label>
+          </div>
+          <div class="learning-actions">
+            <button class="button button-primary" id="url-convert" type="button">변환</button>
+          </div>
+          <label class="learning-field" for="url-result">결과</label>
+          <textarea class="learning-code" id="url-result" rows="3" readonly aria-label="URL 변환 결과"></textarea>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="url-result">결과 복사</button>
+          </div>
+          <p class="learning-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="base64">
+          <h2>Base64 변환</h2>
+          <p>한글을 포함한 UTF-8 텍스트를 Base64로 인코딩하거나 다시 디코딩합니다.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="base64-mode">작업
+              <select id="base64-mode">
+                <option value="encode">인코딩</option>
+                <option value="decode">디코딩</option>
+              </select>
+            </label>
+            <label class="learning-field" for="base64-input">입력
+              <textarea class="learning-code" id="base64-input" rows="3">안녕하세요, 스타일 노트!</textarea>
+            </label>
+          </div>
+          <div class="learning-actions">
+            <button class="button button-primary" id="base64-convert" type="button">변환</button>
+          </div>
+          <label class="learning-field" for="base64-result">결과</label>
+          <textarea class="learning-code" id="base64-result" rows="3" readonly aria-label="Base64 변환 결과"></textarea>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="base64-result">결과 복사</button>
+          </div>
+          <p class="learning-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="json">
+          <h2>JSON Formatter</h2>
+          <p>JSON 문법을 검사하고 읽기 쉬운 형태 또는 압축된 형태로 정리합니다.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="json-mode">출력 형식
+              <select id="json-mode">
+                <option value="pretty">보기 좋게 정리</option>
+                <option value="compact">한 줄로 압축</option>
+              </select>
+            </label>
+          </div>
+          <label class="learning-field" for="json-input">JSON 입력
+            <textarea class="learning-code" id="json-input" rows="6">{"name":"스타일 노트","tools":["HTML","CSS"],"active":true}</textarea>
+          </label>
+          <div class="learning-actions">
+            <button class="button button-primary" id="json-format" type="button">JSON 정리</button>
+          </div>
+          <label class="learning-field" for="json-result">결과</label>
+          <textarea class="learning-code" id="json-result" rows="6" readonly aria-label="JSON 정리 결과"></textarea>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="json-result">결과 복사</button>
+          </div>
+          <p class="learning-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="lorem">
+          <h2>Lorem Ipsum 생성기</h2>
+          <p>필요한 문장 수만큼 반복 가능한 임시 문구를 생성합니다.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="lorem-count">문장 수
+              <input id="lorem-count" type="number" min="1" max="30" step="1" value="3">
+            </label>
+          </div>
+          <div class="learning-actions">
+            <button class="button button-primary" id="lorem-generate" type="button">문구 생성</button>
+          </div>
+          <label class="learning-field" for="lorem-result">결과</label>
+          <textarea class="learning-code" id="lorem-result" rows="6" readonly aria-label="생성된 Lorem Ipsum 문구"></textarea>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="lorem-result">결과 복사</button>
+          </div>
+          <p class="learning-status" role="status" aria-live="polite"></p>
+        </article>
+
+        <article class="learning-section" id="minify">
+          <h2>CSS Minify</h2>
+          <p>CSS의 주석과 불필요한 공백을 제거합니다. 문자열과 URL 내부의 내용은 유지합니다.</p>
+          <label class="learning-field" for="css-input">CSS 입력
+            <textarea class="learning-code" id="css-input" rows="7">/* card styles */
+.card {
+  color: #333;
+  padding: 16px 24px;
+}
+.card::before { content: "hello world"; }</textarea>
+          </label>
+          <div class="learning-actions">
+            <button class="button button-primary" id="css-minify" type="button">CSS 압축</button>
+          </div>
+          <label class="learning-field" for="css-result">결과</label>
+          <textarea class="learning-code" id="css-result" rows="5" readonly aria-label="압축된 CSS"></textarea>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="css-result">결과 복사</button>
+          </div>
+          <p class="learning-status" role="status" aria-live="polite"></p>
+        </article>
+      </section>
+    </main>
+    <!-- 공통 푸터를 페이지 설정에 따라 표시합니다. -->
+    <div id="site-footer"></div>
+  </div>
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"tool-px-rem","footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/learning-tools.js"></script>
+</body>
+</html>

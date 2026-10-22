@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>JavaScript 기초 | 스타일 노트</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/learning-tools.css">
+</head>
+<body>
+  <div class="page-shell">
+    <!-- 공통 헤더를 통해 다른 학습 카테고리로 이동합니다. -->
+    <div id="site-header"></div>
+    <!-- 기초 문법 설명과 직접 실행하는 DOM 이벤트 실습입니다. -->
+    <main class="learning-main">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">JAVASCRIPT LEARNING LAB</p>
+        <h1 id="page-title">JavaScript 기초</h1>
+        <p>코드를 읽고, 실행 결과를 확인하고, 입력값을 직접 바꿔보세요.</p>
+      </section>
+      <section class="learning-section javascript-lesson-item" id="intro">
+        <h2>JavaScript 소개</h2>
+        <p>JavaScript는 웹 페이지에 동작을 더하는 언어입니다. HTML 요소를 선택하고 이벤트를 연결해 화면을 바꿀 수 있어요.</p>
+        <code class="learning-result">const title = document.querySelector('h1');</code>
+      </section>
+      <section class="lesson-list" aria-label="JavaScript 학습 목차">
+        <article class="lesson-item" id="variables"><h2>변수와 자료형</h2><p>다시 대입하지 않을 값은 const, 바뀔 값은 let으로 선언합니다.</p><code class="learning-result">const name = '민지';<br>let score = 10;</code></article>
+        <article class="lesson-item" id="operators"><h2>연산자</h2><p>산술, 비교, 논리 연산자로 값을 계산하고 조건을 만들어요.</p><code class="learning-result">const total = 10 + 5;<br>const passed = total &gt;= 10;</code></article>
+        <article class="lesson-item" id="conditionals"><h2>조건문</h2><p>조건이 참인지에 따라 다른 코드를 실행합니다.</p><code class="learning-result">if (score &gt;= 60) {<br>  message = '합격';<br>}</code></article>
+        <article class="lesson-item" id="loops"><h2>반복문</h2><p>배열의 항목처럼 반복할 일을 for 문으로 처리할 수 있어요.</p><code class="learning-result">for (let i = 0; i &lt; 3; i++) {<br>  console.log(i);<br>}</code></article>
+        <article class="lesson-item" id="functions"><h2>함수</h2><p>여러 번 사용할 동작에 이름을 붙여 재사용합니다.</p><code class="learning-result">function greet(name) {<br>  return `안녕, ${name}`;<br>}</code></article>
+        <article class="lesson-item" id="arrays"><h2>배열</h2><p>순서가 있는 여러 값을 하나로 묶습니다.</p><code class="learning-result">const colors = ['보라', '파랑'];<br>colors[0];</code></article>
+        <article class="lesson-item" id="objects"><h2>객체</h2><p>이름이 있는 속성으로 관련된 데이터를 묶습니다.</p><code class="learning-result">const button = {<br>  text: '저장',<br>  disabled: false<br>};</code></article>
+        <article class="lesson-item" id="dom"><h2>DOM 선택</h2><p>querySelector로 CSS 선택자를 사용해 첫 요소를 찾습니다.</p><code class="learning-result">const preview = document.querySelector('#preview');</code></article>
+        <article class="lesson-item" id="events"><h2>이벤트</h2><p>사용자의 클릭에 반응하도록 click 이벤트를 연결합니다.</p><code class="learning-result">button.addEventListener('click', () =&gt; {<br>  preview.textContent = '클릭했어요';<br>});</code></article>
+        <article class="lesson-item" id="html-css"><h2>HTML / CSS 변경</h2><p>textContent와 style 속성으로 화면의 내용과 모양을 바꿉니다.</p><code class="learning-result">preview.textContent = '새 내용';<br>preview.style.color = 'purple';</code></article>
+        <article class="lesson-item" id="practice"><h2>간단한 실습: 화면 배경 바꾸기</h2><p>버튼을 눌러 배경색을 바꾸고 실행 코드도 확인해보세요.</p>
+          <div class="learning-fields">
+            <label class="learning-field" for="practice-color">새 배경색<input id="practice-color" type="color" value="#e9ddff"></label>
+            <label class="learning-field" for="practice-label">화면 문구<input id="practice-label" type="text" value="버튼을 눌러보세요"></label>
+          </div>
+          <div class="learning-preview" id="js-practice-preview"><span id="js-practice-text">버튼을 눌러보세요</span></div>
+          <div class="learning-actions"><button class="button button-primary" id="js-practice-button" type="button">배경 바꾸기</button><button class="button button-secondary" id="js-practice-reset" type="button">초기화</button></div>
+          <p class="learning-status" id="js-practice-status" role="status" aria-live="polite"></p>
+          <textarea class="learning-code" id="js-practice-code" readonly aria-label="실습 JavaScript 코드"></textarea>
+          <div class="learning-actions"><button class="button button-secondary" id="js-practice-copy" type="button">HTML + JavaScript 복사</button></div>
+        </article>
+      </section>
+    </main>
+    <!-- 여러 페이지가 공유하는 푸터 영역입니다. -->
+    <div id="site-footer"></div>
+  </div>
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"js-practice","footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/learning-tools.js"></script>
+</body>
+</html>

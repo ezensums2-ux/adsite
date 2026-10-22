@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | 실전 예제</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/examples.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "examples",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html", "children": [] },
+        { "id": "css", "label": "CSS 기초", "children": [] },
+        { "id": "layout", "label": "레이아웃", "href": "layout.html", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "href": "animation.html", "children": [] },
+        { "id": "examples", "label": "실전 예제", "href": "examples.html", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main class="examples-page" aria-label="실전 UI 예제">
+      <section class="examples-intro" aria-labelledby="examples-title">
+        <p class="eyebrow">PATTERN LIBRARY</p>
+        <h1 id="examples-title">실전 예제</h1>
+        <p>자주 쓰이는 인터페이스를 조립하고 스타일을 조절하며, 실제 페이지에 적용할 코드까지 확인합니다.</p>
+      </section>
+      <section class="examples-course-section" aria-labelledby="examples-course-title">
+        <div class="examples-heading"><div><p class="examples-kicker">BUILD THE INTERFACE</p><h2 id="examples-course-title">UI 패턴 실습</h2></div><span class="examples-count">10 patterns</span></div>
+        <nav aria-label="실전 예제 목록">
+          <ol class="examples-course-grid">
+            <li><a class="examples-course-link" href="example-buttons.html"><span class="examples-number">01</span><span class="examples-copy"><strong>버튼</strong><span>강조 순위와 형태, 크기를 조절합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-cards.html"><span class="examples-number">02</span><span class="examples-copy"><strong>카드</strong><span>콘텐츠 유형에 맞는 카드 구조를 구성합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-header-navigation.html"><span class="examples-number">03</span><span class="examples-copy"><strong>헤더와 내비게이션</strong><span>브랜드와 링크를 화면 너비에 맞게 배치합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-forms.html"><span class="examples-number">04</span><span class="examples-copy"><strong>입력 폼</strong><span>레이블, 입력 필드, 검증 피드백을 설계합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-content-sections.html"><span class="examples-number">05</span><span class="examples-copy"><strong>소개·콘텐츠 섹션</strong><span>소개와 주요 정보를 읽기 좋은 흐름으로 만듭니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-patterns.html#hero"><span class="examples-number">06</span><span class="examples-copy"><strong>Hero Section</strong><span>첫 화면에서 핵심 메시지와 행동을 강조합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-patterns.html#footer"><span class="examples-number">07</span><span class="examples-copy"><strong>Footer</strong><span>사이트 정보와 보조 탐색 링크를 정리합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-patterns.html#login"><span class="examples-number">08</span><span class="examples-copy"><strong>Login</strong><span>레이블과 입력 검증을 갖춘 로그인 폼을 구성합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-patterns.html#portfolio"><span class="examples-number">09</span><span class="examples-copy"><strong>Portfolio</strong><span>작업 사례와 역할을 카드형 그리드로 보여줍니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="examples-course-link" href="example-patterns.html#landing"><span class="examples-number">10</span><span class="examples-copy"><strong>Landing Page</strong><span>소개, 장점, 행동 유도를 하나의 흐름으로 연결합니다.</span></span><span class="examples-arrow" aria-hidden="true">→</span></a></li>
+          </ol>
+        </nav>
+      </section>
+      <section class="examples-principle" aria-labelledby="principle-title">
+        <div><p class="examples-kicker">DESIGN SYSTEM BASICS</p><h2 id="principle-title">패턴을 재사용 가능한 규칙으로</h2></div>
+        <p>색상과 간격, 상태 표현을 일관되게 두면 여러 화면에서 같은 인터페이스 언어를 유지할 수 있습니다. 각 예제에서는 결과뿐 아니라 구조와 접근성 속성도 함께 확인합니다.</p>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

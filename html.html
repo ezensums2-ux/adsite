@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | HTML 기초</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "html",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html.html", "children": [] },
+        { "id": "css", "label": "CSS 기초", "children": [] },
+        { "id": "layout", "label": "레이아웃", "href": "layout.html", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "href": "animation.html", "children": [] },
+        { "id": "examples", "label": "실전 예제", "href": "examples.html", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main class="layout-page" aria-label="HTML 기초 학습 과정">
+      <section class="layout-intro" aria-labelledby="html-title">
+        <p class="eyebrow">웹 문서의 구조와 의미</p>
+        <h1 id="html-title">HTML 기초</h1>
+        <p>문서의 뼈대를 만들고, 제목과 링크, 목록, 폼처럼 브라우저에 의미 있는 구조를 작성하는 방법을 배웁니다.</p>
+      </section>
+      <section class="layout-course-section" aria-labelledby="html-course-title">
+        <div class="layout-section-heading">
+          <div><p class="layout-kicker">LEARNING PATH</p><h2 id="html-course-title">HTML 강의</h2></div>
+          <span class="layout-course-count">6 lessons</span>
+        </div>
+        <nav aria-label="HTML 기초 강의 목록">
+          <ol class="layout-course-grid">
+            <li><a class="layout-course-link" href="html-basic.html"><span class="course-number">01</span><span class="course-copy"><strong>기본 문서 구조</strong><span>HTML 문서의 기본 골격과 head, body를 알아봅니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="html-text.html"><span class="course-number">02</span><span class="course-copy"><strong>제목과 문단</strong><span>제목 단계와 문단, 텍스트의 의미를 구성합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="html-links.html"><span class="course-number">03</span><span class="course-copy"><strong>링크와 이미지</strong><span>다른 문서로 연결하고 이미지를 의미 있게 넣습니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="html-lists.html"><span class="course-number">04</span><span class="course-copy"><strong>목록과 표</strong><span>정보의 순서와 관계를 목록·표로 표현합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="html-forms.html"><span class="course-number">05</span><span class="course-copy"><strong>입력 폼과 버튼</strong><span>레이블과 입력 요소로 사용자 입력을 받습니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="html-semantics.html"><span class="course-number">06</span><span class="course-copy"><strong>시맨틱 태그</strong><span>콘텐츠 역할에 맞는 의미 있는 요소를 선택합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+          </ol>
+        </nav>
+      </section>
+      <section class="layout-principle" aria-labelledby="html-principle-title">
+        <div><p class="layout-kicker">START WITH STRUCTURE</p><h2 id="html-principle-title">보이는 모양보다 문서의 의미부터</h2></div>
+        <p>HTML 요소는 콘텐츠의 역할을 설명합니다. 올바른 구조를 사용하면 키보드와 보조 기술, 검색 도구에서도 정보를 더 쉽게 이해할 수 있습니다.</p>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

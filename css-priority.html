@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | CSS 우선순위와 상속</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/css-priority.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "css",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html", "children": [] },
+        {
+          "id": "css",
+          "label": "CSS 기초",
+          "status": "학습 중",
+          "children": [
+            { "id": "css-basics", "label": "01 연결 방법과 선택자", "href": "css-basics.html" },
+            { "id": "css-priority", "label": "02 우선순위와 상속", "href": "css-priority.html" },
+            { "id": "css-colors-units", "label": "03 색상과 단위", "href": "css-colors-units.html" },
+            { "id": "css-font-text", "label": "04 글꼴과 텍스트", "href": "css-font-text.html" },
+            { "id": "css-box-model", "label": "05 박스 모델", "href": "css-box-model.html" },
+            { "id": "css-backgrounds", "label": "06 배경과 이미지", "href": "css-backgrounds.html" }
+          ]
+        },
+        { "id": "layout", "label": "레이아웃", "status": "준비 중", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "status": "준비 중", "children": [] },
+        { "id": "examples", "label": "실전 예제", "status": "준비 중", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+
+    <main class="css-priority-page" aria-label="CSS 우선순위와 상속 학습 페이지">
+      <section class="page-intro" aria-labelledby="lesson-title">
+        <p class="eyebrow">CSS 기초 · 02</p>
+        <h1 id="lesson-title">우선순위와 상속</h1>
+        <p>같은 속성이 여러 규칙에 겹치면 브라우저는 어떤 기준으로 선택할까요?<br>우선순위와 상속을 직접 비교해 보며 CSS가 어떻게 적용되는지 이해해 보세요.</p>
+      </section>
+
+      <nav class="lesson-nav" aria-label="CSS 기초 학습 목록">
+        <div class="lesson-nav-header">
+          <span>CSS 기초</span>
+          <span class="lesson-nav-badge">현재 학습</span>
+        </div>
+        <ul class="lesson-nav-list">
+          <li><a class="lesson-link" href="css-basics.html">01 연결 방법과 선택자</a></li>
+          <li><a class="lesson-link is-current" href="css-priority.html" aria-current="page">02 우선순위와 상속</a></li>
+          <li><a class="lesson-link" href="css-colors-units.html">03 색상과 단위</a></li>
+          <li><a class="lesson-link" href="css-font-text.html">04 글꼴과 텍스트</a></li>
+          <li><a class="lesson-link" href="css-box-model.html">05 박스 모델</a></li>
+          <li><a class="lesson-link" href="css-backgrounds.html">06 배경과 이미지</a></li>
+          <li><a class="lesson-link" href="css-display-position.html">07 display와 position</a></li>
+        </ul>
+      </nav>
+
+      <article class="lesson-card concept-card" aria-labelledby="concept-title">
+        <div class="section-heading">
+          <span class="section-badge">개념 설명</span>
+          <h2 id="concept-title">같은 속성이라면 어떤 규칙이 우선일까요?</h2>
+        </div>
+
+        <p class="lead-text">CSS는 여러 선택자가 같은 속성을 정할 때 점수를 비교해서 가장 높은 우선순위를 가진 규칙을 적용합니다. 일반적으로 <strong>태그 선택자</strong>는 가장 낮고, <strong>클래스 선택자</strong>는 더 높으며, <strong>아이디 선택자</strong>는 가장 높습니다.</p>
+
+        <div class="code-block" aria-label="우선순위 예시 코드">
+          <pre><code>p { color: green; }
+.feature { color: purple; }
+#hero { color: orange; }</code></pre>
+        </div>
+
+        <div class="tag-guide" aria-label="우선순위와 상속 설명">
+          <div class="tag-item">
+            <span class="tag-name">태그 선택자</span>
+            <p>예: <code>p</code> · 가장 기본이지만 우선순위가 낮습니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">클래스 선택자</span>
+            <p>예: <code>.feature</code> · 태그보다 더 구체적이라 우선순위가 올라갑니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">아이디 선택자</span>
+            <p>예: <code>#hero</code> · 같은 속성이라면 가장 높은 우선순위를 가집니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">상속</span>
+            <p>부모의 <code>color</code> 같은 값은 자식 요소에게 전달될 수 있습니다. 이를 상속이라고 합니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <section class="lesson-card practice-card" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <span class="section-badge">직접 실습</span>
+          <h2 id="practice-title">우선순위와 상속을 직접 비교해 보세요</h2>
+        </div>
+
+        <div class="practice-layout">
+          <div class="editor-panel">
+            <div class="field-group">
+              <label for="tag-color">태그 선택자 색</label>
+              <input id="tag-color" class="color-input" type="color" value="#2d6a4f">
+            </div>
+
+            <div class="field-group">
+              <label for="class-color">클래스 선택자 색</label>
+              <input id="class-color" class="color-input" type="color" value="#6d4fcf">
+            </div>
+
+            <div class="field-group">
+              <label for="id-color">아이디 선택자 색</label>
+              <input id="id-color" class="color-input" type="color" value="#d97706">
+            </div>
+
+            <div class="field-group">
+              <label for="parent-color">부모 색</label>
+              <input id="parent-color" class="color-input" type="color" value="#1d4ed8">
+            </div>
+
+            <div class="field-group">
+              <label for="child-color">자식 색</label>
+              <input id="child-color" class="color-input" type="color" value="#7c3aed">
+            </div>
+
+            <div class="field-group toggle-row">
+              <label class="checkbox-label" for="inherit-color">
+                <input id="inherit-color" type="checkbox" checked>
+                <span>부모의 <code>color</code>를 자식에게 상속</span>
+              </label>
+            </div>
+
+            <button class="button button-secondary reset-button" id="reset-practice" type="button">실습 초기화</button>
+          </div>
+
+          <div class="preview-panel" aria-labelledby="preview-title">
+            <div class="browser-shell" aria-label="CSS 결과 미리보기">
+              <div class="browser-bar">
+                <span class="traffic-dot red" aria-hidden="true"></span>
+                <span class="traffic-dot yellow" aria-hidden="true"></span>
+                <span class="traffic-dot green" aria-hidden="true"></span>
+                <span class="browser-tab" id="preview-title">우선순위 비교</span>
+              </div>
+              <div class="browser-body">
+                <div id="preview-content" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-card code-card" aria-labelledby="code-title">
+        <div class="section-heading">
+          <span class="section-badge">코드 확인</span>
+          <h2 id="code-title">생성된 CSS 코드</h2>
+        </div>
+
+        <div class="code-header">
+          <span>완성된 CSS</span>
+          <button class="copy-button" id="copy-css-code" type="button">CSS 코드 복사</button>
+        </div>
+        <textarea id="generated-css" class="code-output" rows="16" readonly aria-label="생성된 CSS 코드"></textarea>
+        <p class="copy-status" id="css-copy-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="lesson-card exercise-card" aria-labelledby="exercise-title">
+        <div class="section-heading">
+          <span class="section-badge">작은 연습</span>
+          <h2 id="exercise-title">오늘의 연습</h2>
+        </div>
+
+        <ol class="exercise-list">
+          <li>아이디 색을 가장 강한 색으로 바꾸고, 미리보기에서 왜 최종 색이 바뀌는지 확인해 보세요.</li>
+          <li>클래스 선택자와 태그 선택자 색을 서로 다르게 지정한 뒤, 우선순위가 어떻게 적용되는지 비교해 보세요.</li>
+          <li>상속을 끄고 켤 때 자식 텍스트가 어떻게 달라지는지 확인해 보세요.</li>
+        </ol>
+      </section>
+
+      <section class="lesson-card summary-card" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <span class="section-badge">정리</span>
+          <h2 id="summary-title">한 줄 정리</h2>
+        </div>
+
+        <ul class="summary-list">
+          <li>같은 속성이라면 브라우저는 선택자의 점수를 비교해서 더 높은 규칙을 적용합니다.</li>
+          <li>기본적으로 <strong>태그 &lt; 클래스 &lt; 아이디</strong> 순서로 우선순위가 올라갑니다.</li>
+          <li>부모의 <code>color</code> 값은 자식에게 전달될 수 있고, <code>inherit</code>를 사용하면 명시적으로 상속을 적용할 수 있습니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/css-priority.js"></script>
+</body>
+</html>

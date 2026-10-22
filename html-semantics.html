@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | HTML 시맨틱 태그</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/html-semantics.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+
+    <main class="html-semantics-page" aria-label="HTML 시맨틱 태그 학습 페이지">
+      <section class="page-intro" aria-labelledby="lesson-title">
+        <p class="eyebrow">HTML 기초 · 06</p>
+        <h1 id="lesson-title">시맨틱 태그</h1>
+        <p>시맨틱 태그는 문서의 구조를 더 명확하게 표현해 줍니다. 페이지를 읽는 사람뿐 아니라 브라우저와 검색 엔진도 내용을 더 잘 이해할 수 있어요.</p>
+      </section>
+
+      <nav class="lesson-nav" aria-label="HTML 기초 학습 목록">
+        <div class="lesson-nav-header">
+          <span>HTML 기초</span>
+          <span class="lesson-nav-badge">현재 학습</span>
+        </div>
+        <ul class="lesson-nav-list">
+          <li><a class="lesson-link" href="html-basic.html">01 기본 문서 구조</a></li>
+          <li><a class="lesson-link" href="html-text.html">02 제목과 문단</a></li>
+          <li><a class="lesson-link" href="html-links.html">03 링크와 이미지</a></li>
+          <li><a class="lesson-link" href="html-lists.html">04 목록과 표</a></li>
+          <li><a class="lesson-link" href="html-forms.html">05 입력 폼과 버튼</a></li>
+          <li><a class="lesson-link is-current" href="html-semantics.html" aria-current="page">06 시맨틱 태그</a></li>
+        </ul>
+      </nav>
+
+      <article class="lesson-card concept-card" aria-labelledby="concept-title">
+        <div class="section-heading">
+          <span class="section-badge">개념 설명</span>
+          <h2 id="concept-title">시맨틱 태그는 왜 중요할까요?</h2>
+        </div>
+
+        <p class="lead-text">시맨틱 태그는 단순히 스타일을 위해서가 아니라, 문서의 의미를 드러내기 위해 사용합니다. header, nav, main, section, article, footer 같은 태그를 쓰면 구조를 한눈에 이해할 수 있어요.</p>
+
+        <div class="code-block" aria-label="시맨틱 태그 예시 코드">
+          <pre><code>&lt;header&gt;
+  &lt;h1&gt;스타일 노트&lt;/h1&gt;
+&lt;/header&gt;
+&lt;nav&gt;메뉴&lt;/nav&gt;
+&lt;main&gt;
+  &lt;article&gt;...
+  &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;회사 정보&lt;/footer&gt;</code></pre>
+        </div>
+
+        <div class="tag-guide" aria-label="시맨틱 태그 설명">
+          <div class="tag-item">
+            <span class="tag-name">header</span>
+            <p>페이지나 섹션의 머리 부분을 나타냅니다. 보통 로고, 제목, 안내 문구가 들어갑니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">nav</span>
+            <p>페이지 이동을 위한 메뉴 영역을 의미합니다. 주요 링크 모음이 들어갑니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">main</span>
+            <p>페이지의 핵심 내용이 들어가는 가장 중요한 영역입니다. 한 페이지에 하나만 두는 게 좋습니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">section</span>
+            <p>같은 주제로 묶인 내용을 담는 영역입니다. 문서 구조를 나누는 데 사용합니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">article</span>
+            <p>독립적으로 의미가 있는 글이나 콘텐츠를 담습니다. 뉴스 기사, 블로그 글 등에 적합합니다.</p>
+          </div>
+          <div class="tag-item">
+            <span class="tag-name">footer</span>
+            <p>페이지 하단의 정보 영역을 나타냅니다. 저자, 연락처, copyright 등을 넣는 곳입니다.</p>
+          </div>
+        </div>
+      </article>
+
+      <section class="lesson-card practice-card" aria-labelledby="practice-title">
+        <div class="section-heading">
+          <span class="section-badge">직접 실습</span>
+          <h2 id="practice-title">시맨틱 구조를 직접 조합해 보세요</h2>
+        </div>
+
+        <div class="practice-layout">
+          <div class="editor-panel">
+            <div class="field-group">
+              <label for="site-name">사이트 이름</label>
+              <input id="site-name" class="text-input" type="text" value="스타일 노트" maxlength="50">
+            </div>
+
+            <div class="field-group">
+              <label for="nav-label">메뉴 이름</label>
+              <input id="nav-label" class="text-input" type="text" value="학습 메뉴" maxlength="50">
+            </div>
+
+            <div class="field-group">
+              <label for="main-title">메인 제목</label>
+              <input id="main-title" class="text-input" type="text" value="오늘의 학습" maxlength="80">
+            </div>
+
+            <div class="field-group">
+              <label for="article-text">글 내용</label>
+              <textarea id="article-text" class="text-input textarea-input" rows="5" maxlength="220">시맨틱 태그를 사용하면 문서 구조를 명확하게 이해할 수 있습니다.</textarea>
+            </div>
+
+            <div class="field-group">
+              <label for="footer-text">하단 정보</label>
+              <input id="footer-text" class="text-input" type="text" value="© 2026 스타일 노트" maxlength="80">
+            </div>
+
+            <button class="button button-secondary reset-button" id="reset-practice" type="button">실습 초기화</button>
+          </div>
+
+          <div class="preview-panel" aria-labelledby="preview-title">
+            <div class="browser-shell" aria-label="HTML 결과 미리보기">
+              <div class="browser-bar">
+                <span class="traffic-dot red" aria-hidden="true"></span>
+                <span class="traffic-dot yellow" aria-hidden="true"></span>
+                <span class="traffic-dot green" aria-hidden="true"></span>
+                <span class="browser-tab" id="preview-title">시맨틱 구조</span>
+              </div>
+              <div class="browser-body">
+                <div id="preview-content" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lesson-card code-card" aria-labelledby="code-title">
+        <div class="section-heading">
+          <span class="section-badge">코드 확인</span>
+          <h2 id="code-title">생성된 HTML 코드</h2>
+        </div>
+
+        <div class="code-header">
+          <span>완성된 HTML</span>
+          <button class="copy-button" id="copy-html-code" type="button">HTML 코드 복사</button>
+        </div>
+        <textarea id="generated-html" class="code-output" rows="18" readonly aria-label="생성된 HTML 코드"></textarea>
+        <p class="copy-status" id="html-copy-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="lesson-card exercise-card" aria-labelledby="exercise-title">
+        <div class="section-heading">
+          <span class="section-badge">작은 연습</span>
+          <h2 id="exercise-title">작은 연습</h2>
+        </div>
+
+        <ol class="exercise-list">
+          <li>메인 제목을 “오늘의 핵심 포인트”로 바꿔보세요.</li>
+          <li>메뉴 이름을 “내가 공부하는 목록”으로 바꾸어 보세요.</li>
+          <li>기사 문구를 자신이 오늘 배운 내용으로 바꾸어 보세요.</li>
+          <li>하단 정보를 자신만의 문구로 바꾸어 보세요.</li>
+        </ol>
+      </section>
+
+      <section class="lesson-card summary-card" aria-labelledby="summary-title">
+        <div class="section-heading">
+          <span class="section-badge">학습 포인트</span>
+          <h2 id="summary-title">오늘 기억할 것</h2>
+        </div>
+
+        <ul class="summary-list">
+          <li>header는 머리 영역, nav는 메뉴 영역입니다.</li>
+          <li>main은 핵심 내용, article은 독립된 글입니다.</li>
+          <li>section은 내용을 나누는 영역, footer는 하단 정보입니다.</li>
+          <li>시맨틱 태그는 문서 구조를 더 정확하게 설명합니다.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+  </div>
+
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "html",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html" },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html" },
+        { "id": "css", "label": "CSS 기초", "status": "학습 중", "children": [{ "id": "css-basics", "label": "01 연결 방법과 선택자", "href": "css-basics.html" }, { "id": "css-priority", "label": "02 우선순위와 상속", "href": "css-priority.html" }, { "id": "css-colors-units", "label": "03 색상과 단위", "href": "css-colors-units.html" }, { "id": "css-font-text", "label": "04 글꼴과 텍스트", "href": "css-font-text.html" }, { "id": "css-box-model", "label": "05 박스 모델", "href": "css-box-model.html" }, { "id": "css-backgrounds", "label": "06 배경과 이미지", "href": "css-backgrounds.html" }] },
+
+        { "id": "layout", "label": "레이아웃", "status": "준비 중", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "status": "준비 중", "children": [] },
+        { "id": "examples", "label": "실전 예제", "status": "준비 중", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/html-semantics.js"></script>
+</body>
+</html>

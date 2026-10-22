@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | CSS 애니메이션</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "animation",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html", "children": [] },
+        { "id": "css", "label": "CSS 기초", "children": [] },
+        { "id": "layout", "label": "레이아웃", "href": "layout.html", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "href": "animation.html", "children": [] },
+        { "id": "examples", "label": "실전 예제", "status": "준비 중", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main class="animation-page" aria-label="CSS 애니메이션 학습">
+      <section class="animation-intro" aria-labelledby="animation-title">
+        <p class="eyebrow">CSS 기초 다음 단계</p>
+        <h1 id="animation-title">CSS 애니메이션</h1>
+        <p>요소의 모양을 바꾸고, 변화에 시간을 더하고, 여러 장면을 이어 움직임을 만듭니다.</p>
+      </section>
+      <section class="animation-course-section" aria-labelledby="animation-course-title">
+        <div class="animation-heading">
+          <div><p class="animation-kicker">MOTION STUDY</p><h2 id="animation-course-title">애니메이션 실습</h2></div>
+          <span class="animation-course-count">4 lessons</span>
+        </div>
+        <nav aria-label="CSS 애니메이션 강의 목록">
+          <ol class="animation-course-grid">
+            <li><a class="animation-course-link" href="animation-transform.html"><span class="animation-number">01</span><span class="animation-course-copy"><strong>Transform</strong><span>이동·회전·크기·기울기를 조합합니다.</span></span><span class="animation-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="animation-course-link" href="animation-transition.html"><span class="animation-number">02</span><span class="animation-course-copy"><strong>Transition</strong><span>속성 변화의 시간과 속도 곡선을 조절합니다.</span></span><span class="animation-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="animation-course-link" href="animation-keyframes.html"><span class="animation-number">03</span><span class="animation-course-copy"><strong>Keyframes</strong><span>시작과 중간, 끝 장면으로 움직임을 만듭니다.</span></span><span class="animation-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="animation-course-link" href="animation-examples.html"><span class="animation-number">04</span><span class="animation-course-copy"><strong>효과 예제</strong><span>실제 인터페이스에서 쓰는 움직임을 조합합니다.</span></span><span class="animation-arrow" aria-hidden="true">→</span></a></li>
+          </ol>
+        </nav>
+      </section>
+      <section class="animation-principle" aria-labelledby="animation-principle-title">
+        <div><p class="animation-kicker">MOTION, WITH PURPOSE</p><h2 id="animation-principle-title">움직임은 상태를 더 분명하게</h2></div>
+        <p><code>transform</code>은 모양과 위치를 바꾸고, <code>transition</code>은 상태 사이를 부드럽게 연결합니다. <code>@keyframes</code>는 한 번의 변화로 표현하기 어려운 여러 장면을 순서대로 정의합니다. 움직임은 사용자의 시선을 돕도록 짧고 절제해 사용합니다.</p>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

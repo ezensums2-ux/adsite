@@ -1,0 +1,356 @@
+/* 새 학습 도구도 기존 카드, 입력, 버튼 디자인 변수를 재사용합니다. */
+.learning-main {
+  padding-bottom: 40px;
+}
+
+.learning-notice {
+  margin: 12px 0 18px;
+  padding: 12px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: #fff;
+  font-size: 13px;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 330px) minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.developer-tools-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.learning-card,
+.learning-section {
+  min-width: 0;
+  padding: 19px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.learning-section {
+  margin-bottom: 16px;
+  scroll-margin-top: 18px;
+}
+
+.learning-section h2,
+.learning-card h2 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.learning-section h3 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+}
+
+.learning-section p,
+.learning-card p {
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.learning-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.learning-field {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.learning-field input,
+.learning-field select {
+  width: 100%;
+  min-height: 40px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+}
+
+.learning-field input[type="color"] {
+  padding: 3px;
+}
+
+.learning-result {
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 7px;
+  color: #f7f4ff;
+  background: #211e2a;
+  font: 13px/1.6 ui-monospace, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+.learning-preview {
+  display: grid;
+  min-height: 145px;
+  place-items: center;
+  margin: 12px 0;
+  padding: 20px;
+  border: 1px dashed var(--line);
+  border-radius: 9px;
+  background: #faf9fc;
+}
+
+.learning-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.learning-actions .button {
+  min-height: 40px;
+}
+
+.learning-status {
+  min-height: 1.5em;
+  color: var(--accent-dark);
+  font-size: 12px;
+}
+
+.learning-code {
+  width: 100%;
+  min-height: 86px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #f7f4ff;
+  background: #211e2a;
+  font: 12px/1.6 ui-monospace, Consolas, monospace;
+  resize: vertical;
+}
+
+.image-canvas-wrap {
+  position: relative;
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  overflow: auto;
+  padding: 12px;
+  border: 1px dashed var(--line);
+  border-radius: 9px;
+  background: #faf9fc;
+}
+
+#image-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 560px;
+  touch-action: none;
+}
+
+.crop-selection {
+  position: absolute;
+  display: none;
+  border: 2px solid #fff;
+  outline: 1px solid var(--accent);
+  background: rgb(101 70 200 / 14%);
+  pointer-events: none;
+}
+
+.image-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.image-meta div {
+  padding: 9px 11px;
+  border-radius: 7px;
+  background: #faf9fc;
+  overflow-wrap: anywhere;
+}
+
+.image-meta dt {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.image-meta dd {
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.image-mode[hidden] {
+  display: none !important;
+}
+
+[aria-label="이미지 작업 선택"] {
+  overflow-x: auto;
+}
+
+[aria-label="이미지 작업 선택"] .tool-tab {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.comparison-example {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.comparison-example.bad {
+  color: #b6b6b6;
+  background: #fff;
+}
+
+.comparison-example.good {
+  color: #252431;
+  background: #fff;
+}
+
+.comparison-example a,
+.comparison-example button {
+  margin-top: 8px;
+}
+
+.lesson-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.lesson-item {
+  scroll-margin-top: 20px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lesson-item h2 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.lesson-item p {
+  margin: 5px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.javascript-lesson-item,
+.lesson-item {
+  min-width: 0;
+}
+
+.javascript-lesson-note {
+  margin: 10px 0 14px !important;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  background: #f5f2fc;
+  line-height: 1.7;
+}
+
+.javascript-lesson-lab {
+  display: grid;
+  min-width: 0;
+  gap: 9px;
+  margin-top: 14px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+}
+
+.javascript-lesson-lab h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.lesson-editor-label {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lesson-html-editor,
+.lesson-js-editor {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 88px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: #f7f4ff;
+  background: #211e2a;
+  font: 11px/1.6 ui-monospace, Consolas, monospace;
+  resize: vertical;
+  tab-size: 2;
+}
+
+.lesson-js-editor {
+  min-height: 140px;
+}
+
+.lesson-html-editor:focus-visible,
+.lesson-js-editor:focus-visible {
+  outline-color: var(--focus);
+}
+
+.javascript-lesson-frame {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 190px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lesson-list > .lesson-item {
+  scroll-margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .learning-fields,
+  .comparison-grid,
+  .lesson-list,
+  .image-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-section,
+  .learning-card {
+    padding: 15px;
+  }
+
+  .javascript-lesson-lab .learning-actions .button {
+    flex: 1 1 auto;
+  }
+}

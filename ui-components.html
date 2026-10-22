@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>UI 컴포넌트 | 스타일 노트</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/learning-tools.css">
+</head>
+<body>
+  <div class="page-shell">
+    <!-- 공통 헤더 메뉴를 페이지 간에 공유합니다. -->
+    <div id="site-header"></div>
+    <!-- 버튼 설정, 실시간 미리보기, 생성 코드를 보여줍니다. -->
+    <main class="learning-main">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">INTERACTIVE UI COMPONENTS</p>
+        <h1 id="page-title">UI 컴포넌트 실습</h1>
+        <p>설정을 바꾸면 미리보기와 HTML·CSS 코드가 함께 변경됩니다.</p>
+      </section>
+      <section class="learning-grid" id="button">
+        <aside class="learning-card">
+          <h2 id="component-settings-title">컴포넌트 설정</h2>
+          <label class="learning-field" for="component-type">컴포넌트 선택
+            <select id="component-type">
+              <option value="button">버튼</option><option value="card">카드</option><option value="badge">배지</option>
+              <option value="tabs">탭</option><option value="accordion">아코디언</option><option value="modal">모달</option>
+              <option value="dropdown">드롭다운</option><option value="tooltip">툴팁</option><option value="toggle">토글 스위치</option>
+              <option value="progress">프로그레스 바</option><option value="alert">알림 메시지</option><option value="loading">로딩 UI</option>
+            </select>
+          </label>
+          <div class="learning-fields">
+            <label class="learning-field" for="button-bg">Background
+              <input id="button-bg" type="color" value="#222222">
+            </label>
+            <label class="learning-field" for="button-text-color">Text Color
+              <input id="button-text-color" type="color" value="#ffffff">
+            </label>
+            <label class="learning-field" for="button-radius">Border Radius
+              <input id="button-radius" type="number" min="0" max="50" value="8">
+            </label>
+            <label class="learning-field" for="button-padding-x">Padding X
+              <input id="button-padding-x" type="number" min="0" max="80" value="24">
+            </label>
+            <label class="learning-field" for="button-padding-y">Padding Y
+              <input id="button-padding-y" type="number" min="0" max="50" value="12">
+            </label>
+            <label class="learning-field" for="button-label">Text / Label
+              <input id="button-label" type="text" value="BUTTON" maxlength="32">
+            </label>
+            <label class="learning-field" for="component-progress-value">Progress (%)
+              <input id="component-progress-value" type="number" min="0" max="100" value="65">
+            </label>
+          </div>
+        </aside>
+        <section class="learning-card">
+          <h2 id="component-preview-title">Preview · 버튼</h2>
+          <div class="learning-preview" id="component-preview"></div>
+          <h2>HTML</h2>
+          <textarea class="learning-code" id="component-html-code" readonly aria-label="버튼 HTML 코드"></textarea>
+          <h2>CSS</h2>
+          <textarea class="learning-code" id="component-css-code" readonly aria-label="버튼 CSS 코드"></textarea>
+          <div class="learning-actions">
+            <button class="button button-secondary" type="button" data-learning-copy="component-html-code">HTML 복사</button>
+            <button class="button button-secondary" type="button" data-learning-copy="component-css-code">CSS 복사</button>
+          </div>
+          <p class="learning-status" id="component-copy-status" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+      <section class="learning-section">
+        <h2>다음 실습</h2>
+        <p>상단 메뉴에서 다른 컴포넌트를 고르거나 선택 목록을 사용해보세요. 모든 컴포넌트는 같은 설정 → 미리보기 → HTML/CSS 코드 흐름으로 변경됩니다.</p>
+      </section>
+    </main>
+    <!-- 공통 푸터 영역입니다. -->
+    <div id="site-footer"></div>
+  </div>
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"component-button","footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/learning-tools.js"></script>
+</body>
+</html>

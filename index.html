@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | HTML &amp; CSS 디자인 도구</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <!-- =========================
+       공통 헤더 영역
+  ========================= -->
+  <div class="page-shell">
+    <div id="site-header"></div>
+
+    <!-- =========================
+         페이지 소개 영역
+    ========================= -->
+    <main>
+      <section class="intro" aria-labelledby="page-title"><p class="eyebrow">직접 만들며 배우는 HTML &amp; CSS</p><h1 id="page-title">눈으로 확인하고, 코드로 이해하세요</h1><p>색상과 효과를 조절하면 미리보기와 CSS 코드가 함께 바뀝니다.</p></section>
+
+      <!-- =========================
+           디자인 도구 탭 영역
+      ========================= -->
+      <section class="design-tools" aria-label="HTML과 CSS 디자인 도구">
+        <div class="tool-tabs" role="tablist" aria-label="디자인 도구 선택">
+          <button class="tool-tab active" id="tab-color" role="tab" aria-selected="true" aria-controls="panel-color" tabindex="0">색상 코드</button>
+          <button class="tool-tab" id="tab-gradient" role="tab" aria-selected="false" aria-controls="panel-gradient" tabindex="-1">그라데이션 생성기</button>
+          <button class="tool-tab" id="tab-shadow" role="tab" aria-selected="false" aria-controls="panel-shadow" tabindex="-1">그림자 생성기</button>
+          <button class="tool-tab" id="tab-corners" role="tab" aria-selected="false" aria-controls="panel-corners" tabindex="-1">모서리 생성기</button>
+          <button class="tool-tab" id="tab-borders" role="tab" aria-selected="false" aria-controls="panel-borders" tabindex="-1">테두리 생성기</button>
+        </div>
+        <!-- =========================
+             색상 코드 도구
+        ========================= -->
+        <section class="tool-panel" id="panel-color" role="tabpanel" aria-labelledby="tab-color" tabindex="0">
+          <div class="tool-grid">
+            <aside class="settings-card"><div class="panel-title"><div><small>COLOR VALUES</small><h2>색상 설정</h2></div><span aria-hidden="true">Aa</span></div>
+              <div class="field"><label for="color-picker">색상 선택기</label><div class="picker-row"><input id="color-picker" type="color" value="#7c3aed" aria-label="색상 선택"><code id="color-summary">#7C3AED</code></div></div>
+              <div class="field"><label for="hex-input">HEX 코드</label><input class="text-input" id="hex-input" value="#7c3aed" spellcheck="false" aria-label="HEX 색상 코드 입력" aria-describedby="hex-error"><small class="error" id="hex-error"></small></div>
+              <div class="field alpha-field"><label for="color-alpha">투명도 <output id="color-alpha-value">100%</output></label><input class="range" id="color-alpha" type="range" min="0" max="100" value="100" aria-label="색상 투명도"><div class="alpha-quick" aria-label="투명도 빠른 선택">
+                <button class="alpha-choice" type="button" data-alpha="100" aria-pressed="true">100%</button><button class="alpha-choice" type="button" data-alpha="80" aria-pressed="false">80%</button><button class="alpha-choice" type="button" data-alpha="60" aria-pressed="false">60%</button><button class="alpha-choice" type="button" data-alpha="50" aria-pressed="false">50%</button><button class="alpha-choice" type="button" data-alpha="40" aria-pressed="false">40%</button><button class="alpha-choice" type="button" data-alpha="20" aria-pressed="false">20%</button><button class="alpha-choice" type="button" data-alpha="10" aria-pressed="false">10%</button>
+              </div></div>
+              <fieldset class="field"><legend>RGB <small>0–255</small></legend><div class="triple"><div><label for="rgb-r">R</label><input class="text-input" id="rgb-r" inputmode="numeric" value="124"><small class="error" id="rgb-r-error"></small></div><div><label for="rgb-g">G</label><input class="text-input" id="rgb-g" inputmode="numeric" value="58"><small class="error" id="rgb-g-error"></small></div><div><label for="rgb-b">B</label><input class="text-input" id="rgb-b" inputmode="numeric" value="237"><small class="error" id="rgb-b-error"></small></div></div></fieldset>
+              <fieldset class="field"><legend>HSL <small>H 0–360 · S/L 0–100%</small></legend><div class="triple"><div><label for="hsl-h">H°</label><input class="text-input" id="hsl-h" inputmode="decimal" value="262.1"><small class="error" id="hsl-h-error"></small></div><div><label for="hsl-s">S%</label><input class="text-input" id="hsl-s" inputmode="decimal" value="83.3"><small class="error" id="hsl-s-error"></small></div><div><label for="hsl-l">L%</label><input class="text-input" id="hsl-l" inputmode="decimal" value="57.8"><small class="error" id="hsl-l-error"></small></div></div></fieldset>
+              <div class="field"><span class="field-label">기본 색상</span><div class="swatches" aria-label="색상 프리셋">
+                <button class="swatch selected" data-color="#7c3aed" aria-label="보라색" aria-pressed="true" style="--swatch:#7c3aed"></button><button class="swatch" data-color="#2563eb" aria-label="파란색" aria-pressed="false" style="--swatch:#2563eb"></button><button class="swatch" data-color="#0891b2" aria-label="청록색" aria-pressed="false" style="--swatch:#0891b2"></button><button class="swatch" data-color="#16a34a" aria-label="초록색" aria-pressed="false" style="--swatch:#16a34a"></button><button class="swatch" data-color="#eab308" aria-label="노란색" aria-pressed="false" style="--swatch:#eab308"></button><button class="swatch" data-color="#ea580c" aria-label="주황색" aria-pressed="false" style="--swatch:#ea580c"></button><button class="swatch" data-color="#e11d48" aria-label="분홍색" aria-pressed="false" style="--swatch:#e11d48"></button><button class="swatch" data-color="#374151" aria-label="회색" aria-pressed="false" style="--swatch:#374151"></button>
+              </div></div><button class="button button-secondary reset-tool" data-reset="color">색상 코드 기본값으로 초기화</button>
+            </aside>
+            <section class="preview-card"><div class="panel-title"><div><small>LIVE PREVIEW</small><h2>색상 적용 미리보기</h2></div></div><div class="color-preview"><div class="color-block-checker"><div id="color-block" class="color-block"><span>COLOR</span><strong id="color-preview-hex">#7C3AED</strong></div></div><div id="background-example" class="background-example"><small>background-color</small><strong>배경색 예시</strong></div><div id="text-example" class="text-example"><small>color</small><strong>글자색 예시</strong></div></div><p class="caption">같은 색도 적용하는 속성에 따라 역할이 달라져요.</p></section>
+            <section class="code-card"><div class="code-heading"><div><small>GENERATED CSS</small><h2>생성된 코드</h2></div></div>
+              <div class="code-item"><div><strong>HEX</strong><button class="copy-button" data-copy="color-hex-code" aria-label="HEX 코드 복사">복사</button></div><textarea class="code-output code-output-value" id="color-hex-code" rows="1" readonly aria-label="HEX 색상 코드"></textarea></div>
+              <div class="code-item"><div><strong>RGB</strong><button class="copy-button" data-copy="color-rgb-code" aria-label="RGB 코드 복사">복사</button></div><textarea class="code-output code-output-value" id="color-rgb-code" rows="1" readonly aria-label="RGB 색상 코드"></textarea></div>
+              <div class="code-item"><div><strong>RGBA</strong><button class="copy-button" data-copy="color-rgba-code" aria-label="RGBA 코드 복사">복사</button></div><textarea class="code-output code-output-value" id="color-rgba-code" rows="1" readonly aria-label="RGBA 색상 코드"></textarea></div>
+              <div class="code-item"><div><strong>HSL</strong><button class="copy-button" data-copy="color-hsl-code" aria-label="HSL 코드 복사">복사</button></div><textarea class="code-output code-output-value" id="color-hsl-code" rows="1" readonly aria-label="HSL 색상 코드"></textarea></div>
+              <div class="code-item"><div><strong>HSLA</strong><button class="copy-button" data-copy="color-hsla-code" aria-label="HSLA 코드 복사">복사</button></div><textarea class="code-output code-output-value" id="color-hsla-code" rows="1" readonly aria-label="HSLA 색상 코드"></textarea></div>
+              <div class="code-item"><div><strong>HEX + Alpha</strong><button class="copy-button" data-copy="color-hex-alpha-code" aria-label="HEX Alpha 코드 복사">복사</button></div><textarea class="code-output code-output-value" id="color-hex-alpha-code" rows="1" readonly aria-label="HEX Alpha 색상 코드"></textarea></div>
+              <div class="css-declaration"><label for="color-css-property">CSS 속성</label><select class="text-input" id="color-css-property"><option value="background-color">background-color</option><option value="color">color</option><option value="border-color">border-color</option></select><textarea class="code-output short-code" id="color-css-code" rows="2" readonly aria-label="생성된 CSS 선언"></textarea><button class="copy-button" data-copy="color-css-code" aria-label="CSS 코드 복사">CSS 복사</button></div>
+              <p class="copy-status" id="color-copy-status" role="status" aria-live="polite"></p>
+            </section>
+            <section class="learn-card"><small>QUICK NOTE</small><h2>색상 코드와 투명도 이해하기</h2><p><b>HEX</b>는 16진수 표기, <b>RGB</b>는 빨강·초록·파랑 빛의 양(0~255), <b>HSL</b>은 색상·선명도·밝기로 색을 설명해요.</p><p><b>RGBA / HSLA Alpha</b>는 색상 자체의 투명도만 바꾸지만, <b>opacity</b>는 요소와 내부 콘텐츠 전체를 함께 투명하게 합니다.</p><div class="opacity-comparison"><div class="alpha-compare"><small>RGBA Alpha</small><div class="compare-stage"><div id="rgba-compare-box"><strong>BOX</strong><span>TEXT</span></div></div></div><div class="alpha-compare"><small>opacity</small><div class="compare-stage"><div id="opacity-compare-box"><strong>BOX</strong><span>TEXT</span></div></div></div></div><div class="practice"><b>직접 해보기</b><span>투명도를 낮추고 두 상자 안의 글자 가독성이 어떻게 달라지는지 비교해보세요.</span></div></section>
+          </div>
+        </section>
+        <!-- =========================
+             그라데이션 도구
+        ========================= -->
+        <section class="tool-panel" id="panel-gradient" role="tabpanel" aria-labelledby="tab-gradient" tabindex="0" hidden>
+          <div class="tool-grid">
+            <aside class="settings-card"><div class="panel-title"><div><small>COLOR BLEND</small><h2>그라데이션 설정</h2></div></div>
+              <div class="field"><label for="gradient-kind">종류</label><select class="text-input" id="gradient-kind"><option value="linear">선형</option><option value="radial">원형</option></select></div>
+              <div class="field picker-row"><label for="gradient-start">시작 색상</label><input id="gradient-start" type="color" value="#7c3aed"></div><div class="field picker-row"><label for="gradient-end">끝 색상</label><input id="gradient-end" type="color" value="#38bdf8"></div>
+              <div class="field"><label for="gradient-start-position">시작 위치 <output id="gradient-start-value">0%</output></label><input class="range" id="gradient-start-position" type="range" min="0" max="100" value="0"></div>
+              <div class="field"><label for="gradient-end-position">끝 위치 <output id="gradient-end-value">100%</output></label><input class="range" id="gradient-end-position" type="range" min="0" max="100" value="100"></div>
+              <div class="field" id="angle-control"><label for="gradient-angle">선형 각도 <output id="gradient-angle-value">135°</output></label><input class="range" id="gradient-angle" type="range" min="0" max="360" value="135"></div>
+              <div class="field" id="center-control" hidden><label for="gradient-center">원형 중심</label><select class="text-input" id="gradient-center"><option value="center">중앙</option><option value="top">위</option><option value="bottom">아래</option><option value="left">왼쪽</option><option value="right">오른쪽</option></select></div>
+              <div class="field"><span class="field-label">프리셋</span><div class="preset-grid"><button class="preset-choice selected" data-gradient-preset="violet" aria-pressed="true">보라 하늘</button><button class="preset-choice" data-gradient-preset="sunset" aria-pressed="false">노을</button><button class="preset-choice" data-gradient-preset="mint" aria-pressed="false">민트</button><button class="preset-choice" data-gradient-preset="peach" aria-pressed="false">피치</button></div></div><button class="button button-secondary reset-tool" data-reset="gradient">그라데이션 기본값으로 초기화</button>
+            </aside>
+            <section class="preview-card"><div class="panel-title"><div><small>LIVE PREVIEW</small><h2>그라데이션 미리보기</h2></div></div><div class="gradient-preview" id="gradient-preview"><strong>부드러운 색의 흐름</strong><span>종류와 위치를 바꿔보세요</span></div><p class="caption">그라데이션은 background 또는 background-image에 적용해요.</p></section>
+            <section class="code-card"><div class="code-heading"><div><small>GENERATED CSS</small><h2>생성된 코드</h2></div><button class="copy-button" data-copy="gradient-code">코드 복사</button></div><textarea class="code-output short-code" id="gradient-code" rows="2" readonly aria-label="그라데이션 CSS"></textarea><p class="copy-status" id="gradient-copy-status" role="status" aria-live="polite"></p></section>
+            <section class="learn-card"><small>QUICK NOTE</small><h2>그라데이션 이해하기</h2><p><code>linear-gradient()</code>는 한 방향으로, <code>radial-gradient()</code>는 중심에서 바깥으로 색이 이어집니다.</p><p>각도는 선형의 흐름 방향이고, 백분율 위치는 각 색이 놓일 지점이에요. 그라데이션은 <code>background-color</code>가 아니라 <code>background</code>나 <code>background-image</code>에 적용합니다.</p><div class="practice"><b>직접 해보기</b><span>시작 위치를 25%로 옮기고 색상 간격을 비교해보세요.</span></div></section>
+          </div>
+        </section>
+        <!-- =========================
+             그림자 도구
+        ========================= -->
+        <section class="tool-panel" id="panel-shadow" role="tabpanel" aria-labelledby="tab-shadow" tabindex="0" hidden>
+          <div class="tool-grid">
+            <aside class="settings-card"><div class="panel-title"><div><small>DEPTH &amp; LIGHT</small><h2>그림자 설정</h2></div></div>
+              <div class="field shadow-field" data-shadow="x" data-min="-50" data-max="50"><label for="shadow-x-range">가로 이동 <output id="shadow-x-value">0px</output></label><div class="range-pair"><input class="range" id="shadow-x-range" type="range" min="-50" max="50" value="0"><label class="visually-hidden" for="shadow-x-number">가로 이동 값</label><input class="number-input" id="shadow-x-number" type="number" min="-50" max="50" value="0"></div></div>
+              <div class="field shadow-field" data-shadow="y" data-min="-50" data-max="50"><label for="shadow-y-range">세로 이동 <output id="shadow-y-value">12px</output></label><div class="range-pair"><input class="range" id="shadow-y-range" type="range" min="-50" max="50" value="12"><label class="visually-hidden" for="shadow-y-number">세로 이동 값</label><input class="number-input" id="shadow-y-number" type="number" min="-50" max="50" value="12"></div></div>
+              <div class="field shadow-field" data-shadow="blur" data-min="0" data-max="100"><label for="shadow-blur-range">흐림 <output id="shadow-blur-value">28px</output></label><div class="range-pair"><input class="range" id="shadow-blur-range" type="range" min="0" max="100" value="28"><label class="visually-hidden" for="shadow-blur-number">흐림 값</label><input class="number-input" id="shadow-blur-number" type="number" min="0" max="100" value="28"></div></div>
+              <div class="field shadow-field" data-shadow="spread" data-min="-50" data-max="50"><label for="shadow-spread-range">퍼짐 <output id="shadow-spread-value">0px</output></label><div class="range-pair"><input class="range" id="shadow-spread-range" type="range" min="-50" max="50" value="0"><label class="visually-hidden" for="shadow-spread-number">퍼짐 값</label><input class="number-input" id="shadow-spread-number" type="number" min="-50" max="50" value="0"></div></div>
+              <div class="field picker-row"><label for="shadow-color">그림자 색상</label><input id="shadow-color" type="color" value="#16131f"></div>
+              <div class="field shadow-field" data-shadow="opacity" data-min="0" data-max="100"><label for="shadow-opacity-range">불투명도 <output id="shadow-opacity-value">18%</output></label><div class="range-pair"><input class="range" id="shadow-opacity-range" type="range" min="0" max="100" value="18"><label class="visually-hidden" for="shadow-opacity-number">불투명도 값</label><input class="number-input" id="shadow-opacity-number" type="number" min="0" max="100" value="18"></div></div>
+              <div class="field inset-row"><label for="shadow-inset">내부 그림자 inset</label><input id="shadow-inset" type="checkbox"></div>
+              <div class="field"><span class="field-label">프리셋</span><div class="preset-grid"><button class="preset-choice selected" data-shadow-preset="soft" aria-pressed="true">은은한 그림자</button><button class="preset-choice" data-shadow-preset="floating" aria-pressed="false">떠 있는 카드</button><button class="preset-choice" data-shadow-preset="sharp" aria-pressed="false">선명한 그림자</button><button class="preset-choice" data-shadow-preset="inset" aria-pressed="false">내부 그림자</button></div></div><button class="button button-secondary reset-tool" data-reset="shadow">그림자 기본값으로 초기화</button>
+            </aside>
+            <section class="preview-card"><div class="panel-title"><div><small>LIVE PREVIEW</small><h2>그림자 미리보기</h2></div></div><div class="shadow-stage"><div class="shadow-sample" id="shadow-sample"><b>S</b><strong>떠오르는 카드</strong><span>그림자의 변화를 확인해보세요</span></div></div><p class="caption">그림자가 잘리지 않도록 주변 여백을 두었어요.</p></section>
+            <section class="code-card"><div class="code-heading"><div><small>GENERATED CSS</small><h2>생성된 코드</h2></div><button class="copy-button" data-copy="shadow-code">코드 복사</button></div><textarea class="code-output short-code" id="shadow-code" rows="2" readonly aria-label="그림자 CSS"></textarea><p class="copy-status" id="shadow-copy-status" role="status" aria-live="polite"></p></section>
+            <section class="learn-card"><small>QUICK NOTE</small><h2>box-shadow 읽기</h2><p><code>box-shadow: 가로 세로 흐림 퍼짐 색상;</code> 순서로 값을 적어요. <code>inset</code>은 그림자를 안쪽으로 넣습니다.</p><p><b>흐림</b>은 가장자리의 부드러운 정도, <b>퍼짐</b>은 그림자 모양 자체의 크기예요. 음수 퍼짐은 그림자를 줄입니다.</p><div class="practice"><b>직접 해보기</b><span>흐림을 0으로 두고 퍼짐만 바꿔 비교해보세요.</span></div></section>
+          </div>
+        </section>
+        <!-- 모서리 값을 조절하고 미리보기와 CSS 코드를 확인하는 도구입니다. -->
+        <section class="tool-panel" id="panel-corners" role="tabpanel" aria-labelledby="tab-corners" tabindex="0" hidden>
+          <div class="tool-grid">
+            <aside class="settings-card">
+              <div class="panel-title"><div><small>SHAPE &amp; CORNERS</small><h2>모서리 설정</h2></div></div>
+              <div class="field inset-row"><label for="corner-linked">모든 모서리 함께 조절</label><input id="corner-linked" type="checkbox" checked aria-label="모든 모서리 함께 조절"></div>
+              <div class="field corner-field" data-corner="topLeft" data-label="왼쪽 위"><label for="corner-top-left-range">왼쪽 위 <output id="corner-top-left-value">16px</output></label><div class="range-pair"><input class="range" id="corner-top-left-range" type="range" min="0" max="150" value="16" aria-label="왼쪽 위 모서리 반경"><input class="number-input" id="corner-top-left-number" type="number" min="0" max="150" value="16" aria-label="왼쪽 위 모서리 반경(px)"></div></div>
+              <div class="field corner-field" data-corner="topRight" data-label="오른쪽 위"><label for="corner-top-right-range">오른쪽 위 <output id="corner-top-right-value">16px</output></label><div class="range-pair"><input class="range" id="corner-top-right-range" type="range" min="0" max="150" value="16" aria-label="오른쪽 위 모서리 반경"><input class="number-input" id="corner-top-right-number" type="number" min="0" max="150" value="16" aria-label="오른쪽 위 모서리 반경(px)"></div></div>
+              <div class="field corner-field" data-corner="bottomRight" data-label="오른쪽 아래"><label for="corner-bottom-right-range">오른쪽 아래 <output id="corner-bottom-right-value">16px</output></label><div class="range-pair"><input class="range" id="corner-bottom-right-range" type="range" min="0" max="150" value="16" aria-label="오른쪽 아래 모서리 반경"><input class="number-input" id="corner-bottom-right-number" type="number" min="0" max="150" value="16" aria-label="오른쪽 아래 모서리 반경(px)"></div></div>
+              <div class="field corner-field" data-corner="bottomLeft" data-label="왼쪽 아래"><label for="corner-bottom-left-range">왼쪽 아래 <output id="corner-bottom-left-value">16px</output></label><div class="range-pair"><input class="range" id="corner-bottom-left-range" type="range" min="0" max="150" value="16" aria-label="왼쪽 아래 모서리 반경"><input class="number-input" id="corner-bottom-left-number" type="number" min="0" max="150" value="16" aria-label="왼쪽 아래 모서리 반경(px)"></div></div>
+              <div class="field"><span class="field-label">빠른 모양</span><div class="preset-grid"><button class="preset-choice" type="button" data-corner-preset="0">각진</button><button class="preset-choice" type="button" data-corner-preset="12">부드러운</button><button class="preset-choice" type="button" data-corner-preset="32">둥근</button><button class="preset-choice" type="button" data-corner-preset="75">캡슐형</button></div></div>
+              <button class="button button-secondary reset-tool" data-reset="corners">모서리 기본값으로 초기화</button>
+            </aside>
+            <section class="preview-card"><div class="panel-title"><div><small>LIVE PREVIEW</small><h2>모서리 미리보기</h2></div></div><div class="corner-stage"><div class="corner-sample" id="corner-preview"><strong>모서리 반경</strong><span>각 값을 움직여 모양을 바꿔보세요</span></div></div><p class="caption">각 모서리의 곡률을 개별 또는 함께 조절할 수 있어요.</p></section>
+            <section class="code-card"><div class="code-heading"><div><small>GENERATED CSS</small><h2>생성된 코드</h2></div><button class="copy-button" data-copy="corner-code" aria-label="모서리 CSS 코드 복사">코드 복사</button></div><textarea class="code-output short-code" id="corner-code" rows="2" readonly aria-label="모서리 CSS"></textarea><p class="copy-status" id="corner-copy-status" role="status" aria-live="polite"></p></section>
+            <section class="learn-card"><small>QUICK NOTE</small><h2>border-radius 이해하기</h2><p><code>border-radius</code>는 요소의 모서리를 둥글게 만들어요. 하나의 값은 네 모서리에 모두 적용되고, 네 값을 쓰면 왼쪽 위부터 시계 방향으로 각각 지정합니다.</p><p>값을 크게 만들수록 둥글어집니다. 네 모서리 값이 충분히 크면 알약 모양의 캡슐 형태가 돼요.</p><div class="practice"><b>직접 해보기</b><span>함께 조절을 끄고 왼쪽 위 모서리만 크게 바꿔보세요.</span></div></section>
+          </div>
+        </section>
+        <section class="tool-panel" id="panel-borders" role="tabpanel" aria-labelledby="tab-borders" tabindex="0" hidden>
+          <div class="tool-grid">
+            <aside class="settings-card">
+              <div class="panel-title"><div><small>LINES &amp; EDGES</small><h2>테두리 설정</h2></div></div>
+              <div class="field"><label for="border-width-range">두께 <output id="border-width-value">3px</output></label><div class="range-pair"><input class="range" id="border-width-range" type="range" min="0" max="24" value="3" aria-label="테두리 두께"><input class="number-input" id="border-width-number" type="number" min="0" max="24" value="3" aria-label="테두리 두께(px)"></div></div>
+              <div class="field"><label for="border-style">선 모양</label><select class="text-input" id="border-style" aria-label="테두리 선 모양"><option value="solid">실선 (solid)</option><option value="dashed">긴 점선 (dashed)</option><option value="dotted">점선 (dotted)</option><option value="double">이중선 (double)</option><option value="groove">홈 (groove)</option><option value="ridge">융기 (ridge)</option><option value="inset">안쪽 (inset)</option><option value="outset">바깥쪽 (outset)</option><option value="none">없음 (none)</option></select></div>
+              <div class="field picker-row"><label for="border-color">테두리 색상</label><input id="border-color" type="color" value="#6546c8" aria-label="테두리 색상"></div>
+              <div class="field"><label for="border-radius-range">모서리 반경 <output id="border-radius-value">12px</output></label><div class="range-pair"><input class="range" id="border-radius-range" type="range" min="0" max="100" value="12" aria-label="테두리 모서리 반경"><input class="number-input" id="border-radius-number" type="number" min="0" max="100" value="12" aria-label="모서리 반경(px)"></div></div>
+              <fieldset class="field border-sides"><legend>적용할 면</legend><div><label><input type="checkbox" data-border-side="top" checked> 위</label><label><input type="checkbox" data-border-side="right" checked> 오른쪽</label><label><input type="checkbox" data-border-side="bottom" checked> 아래</label><label><input type="checkbox" data-border-side="left" checked> 왼쪽</label></div></fieldset>
+              <button class="button button-secondary reset-tool" data-reset="borders">테두리 기본값으로 초기화</button>
+            </aside>
+            <section class="preview-card"><div class="panel-title"><div><small>LIVE PREVIEW</small><h2>테두리 미리보기</h2></div></div><div class="border-stage"><div class="border-sample" id="border-preview"><strong>미리보기 카드</strong><span>두께와 선 모양을 바꿔보세요</span></div></div><p class="caption">원하는 면만 선택해 개별 테두리 효과를 만들 수 있어요.</p></section>
+            <section class="code-card"><div class="code-heading"><div><small>GENERATED CSS</small><h2>생성된 코드</h2></div><button class="copy-button" data-copy="border-code" aria-label="테두리 CSS 코드 복사">코드 복사</button></div><textarea class="code-output short-code" id="border-code" rows="4" readonly aria-label="테두리 CSS"></textarea><p class="copy-status" id="border-copy-status" role="status" aria-live="polite"></p></section>
+            <section class="learn-card"><small>QUICK NOTE</small><h2>border 속성 이해하기</h2><p><code>border</code>는 두께, 선 모양, 색상 순서로 값을 지정해요. 예를 들어 <code>2px dashed #6546c8</code>은 보라색 점선 테두리입니다.</p><p>네 면을 모두 선택하면 짧은 <code>border</code> 선언을 만들고, 일부 면만 선택하면 해당 면별 속성을 생성합니다. 두께를 0으로 하거나 선 모양을 없음으로 바꾸면 테두리가 사라져요.</p><div class="practice"><b>직접 해보기</b><span>위쪽과 아래쪽만 선택하고 점선 효과를 비교해보세요.</span></div></section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- =========================
+         공통 푸터 영역
+    ========================= -->
+    <div id="site-footer"></div>
+  </div>
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"tools","menu":[{"id":"tools","label":"디자인 도구","href":"index.html"},{"id":"html","label":"HTML 기초","href":"html-basic.html","children":[]},{"id":"css","label":"CSS 기초","status":"학습 중","children":[{"id":"css-basics","label":"01 연결 방법과 선택자","href":"css-basics.html"},{"id":"css-priority","label":"02 우선순위와 상속","href":"css-priority.html"},{"id":"css-colors-units","label":"03 색상과 단위","href":"css-colors-units.html"},{"id":"css-font-text","label":"04 글꼴과 텍스트","href":"css-font-text.html"},{"id":"css-box-model","label":"05 박스 모델","href":"css-box-model.html"},{"id":"css-backgrounds","label":"06 배경과 이미지","href":"css-backgrounds.html"}]},{"id":"layout","label":"레이아웃","status":"준비 중","children":[]},{"id":"animation","label":"CSS 애니메이션","status":"준비 중","children":[]},{"id":"examples","label":"실전 예제","status":"준비 중","children":[]}],"footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

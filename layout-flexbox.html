@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | Flexbox 실습</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"layout","menu":[{"id":"tools","label":"디자인 도구","href":"index.html","children":[]},{"id":"html","label":"HTML 기초","href":"html-basic.html","children":[]},{"id":"css","label":"CSS 기초","children":[]},{"id":"layout","label":"레이아웃","href":"layout.html","children":[]},{"id":"animation","label":"CSS 애니메이션","status":"준비 중","children":[]},{"id":"examples","label":"실전 예제","status":"준비 중","children":[]}],"footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main class="layout-lesson-page" data-layout-demo="flexbox" aria-label="Flexbox 실습">
+      <section class="layout-page-intro"><p class="eyebrow">레이아웃 · 01</p><h1>Flexbox 실습</h1><p>한 방향으로 놓인 항목의 순서와 정렬을 바꿔 보세요. 주축 정렬과 교차축 정렬이 어떻게 다른지 미리보기로 확인합니다.</p></section>
+      <nav class="layout-lesson-nav" aria-label="레이아웃 학습 목록"><div class="layout-lesson-nav-heading"><span>레이아웃</span><a href="layout.html">전체 목록</a></div><ul class="layout-lesson-nav-list"><li><a class="layout-lesson-link is-current" href="layout-flexbox.html" aria-current="page">01 Flexbox 실습</a></li><li><a class="layout-lesson-link" href="layout-grid.html">02 Grid 실습</a></li><li><a class="layout-lesson-link" href="layout-responsive.html">03 반응형과 미디어 쿼리</a></li><li><a class="layout-lesson-link" href="layout-examples.html">04 레이아웃 예제</a></li></ul></nav>
+      <section class="layout-lesson-card"><span class="layout-section-label">핵심 개념</span><h2>주축과 교차축을 따로 정렬해요</h2><p>Flexbox는 컨테이너의 주축을 따라 아이템을 배치합니다. <code>flex-direction</code>이 주축 방향을 정하고, <code>justify-content</code>는 주축을, <code>align-items</code>는 교차축을 정렬합니다.</p><div class="layout-concept-grid"><div class="layout-concept"><strong>주축</strong><span>row에서는 가로, column에서는 세로 방향입니다.</span></div><div class="layout-concept"><strong>교차축</strong><span>주축과 직각인 방향입니다.</span></div><div class="layout-concept"><strong>줄바꿈</strong><span>공간이 부족할 때 flex-wrap으로 다음 줄을 만들 수 있습니다.</span></div></div></section>
+      <section class="layout-lesson-card" aria-labelledby="practice-title"><span class="layout-section-label">직접 실습</span><h2 id="practice-title">컨테이너 정렬 바꾸기</h2><div class="layout-practice-grid"><div class="layout-editor">
+        <fieldset class="layout-fieldset"><legend>방향과 정렬</legend><div class="layout-field"><label for="flex-direction">주축 방향</label><select class="layout-input" id="flex-direction"><option value="row">가로 · row</option><option value="row-reverse">가로 역순 · row-reverse</option><option value="column">세로 · column</option></select></div><div class="layout-field"><label for="flex-justify">주축 정렬</label><select class="layout-input" id="flex-justify"><option value="flex-start">시작</option><option value="center">가운데</option><option value="space-between">양 끝에 배치</option><option value="space-around">주변 간격 균등</option></select></div><div class="layout-field"><label for="flex-align">교차축 정렬</label><select class="layout-input" id="flex-align"><option value="stretch">늘리기</option><option value="center">가운데</option><option value="flex-start">시작</option><option value="flex-end">끝</option></select></div></fieldset>
+        <fieldset class="layout-fieldset"><legend>간격과 줄바꿈</legend><div class="layout-field"><label for="flex-gap">간격 <output id="flex-gap-value">12px</output></label><input class="layout-range" id="flex-gap" type="range" min="0" max="32" value="12"></div><div class="layout-field"><label for="flex-wrap">줄바꿈</label><select class="layout-input" id="flex-wrap"><option value="nowrap">한 줄 · nowrap</option><option value="wrap">필요하면 줄바꿈 · wrap</option></select></div><div class="layout-field"><label for="flex-count">아이템 수 <output id="flex-count-value">4개</output></label><input class="layout-range" id="flex-count" type="range" min="3" max="7" value="4"></div></fieldset>
+        <button class="button button-secondary layout-reset" id="layout-reset" type="button">기본값으로 초기화</button>
+      </div><div class="layout-preview"><div class="layout-browser"><div class="layout-browser-bar"><span class="layout-browser-dot"></span><span class="layout-browser-dot"></span><span class="layout-browser-dot"></span><span class="layout-browser-title">Flexbox 결과 미리보기</span></div><div class="layout-browser-body"><div class="layout-demo-stage" id="layout-demo-stage" aria-live="polite"></div><p class="layout-preview-note" id="layout-preview-note"></p></div></div></div></div></section>
+      <section class="layout-lesson-card"><div class="layout-code-header"><span>현재 설정으로 만든 CSS</span><button class="layout-copy-button" id="layout-copy" type="button">코드 복사</button></div><textarea class="layout-code-output" id="layout-code" rows="16" readonly aria-label="생성된 Flexbox 코드"></textarea><p class="layout-copy-status" id="layout-copy-status" role="status" aria-live="polite"></p></section>
+      <section class="layout-lesson-card"><span class="layout-section-label">정리</span><h2>기억해 두세요</h2><ul class="layout-summary"><li><code>justify-content</code>는 주축, <code>align-items</code>는 교차축을 정렬합니다.</li><li><code>gap</code>은 아이템 사이 간격을 만들고, <code>flex-wrap</code>은 여러 줄 배치를 허용합니다.</li></ul></section>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script src="assets/js/components.js"></script><script src="assets/js/layout-lessons.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | Grid 실습</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"layout","menu":[{"id":"tools","label":"디자인 도구","href":"index.html","children":[]},{"id":"html","label":"HTML 기초","href":"html-basic.html","children":[]},{"id":"css","label":"CSS 기초","children":[]},{"id":"layout","label":"레이아웃","href":"layout.html","children":[]},{"id":"animation","label":"CSS 애니메이션","status":"준비 중","children":[]},{"id":"examples","label":"실전 예제","status":"준비 중","children":[]}],"footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+</head>
+<body>
+  <div class="page-shell"><div id="site-header"></div>
+    <main class="layout-lesson-page" data-layout-demo="grid" aria-label="Grid 실습">
+      <section class="layout-page-intro"><p class="eyebrow">레이아웃 · 02</p><h1>Grid 실습</h1><p>행과 열로 나뉜 격자에 아이템을 배치합니다. 열의 수와 간격, 첫 아이템이 차지하는 칸 수를 바꾸며 구조를 비교해 보세요.</p></section>
+      <nav class="layout-lesson-nav" aria-label="레이아웃 학습 목록"><div class="layout-lesson-nav-heading"><span>레이아웃</span><a href="layout.html">전체 목록</a></div><ul class="layout-lesson-nav-list"><li><a class="layout-lesson-link" href="layout-flexbox.html">01 Flexbox 실습</a></li><li><a class="layout-lesson-link is-current" href="layout-grid.html" aria-current="page">02 Grid 실습</a></li><li><a class="layout-lesson-link" href="layout-responsive.html">03 반응형과 미디어 쿼리</a></li><li><a class="layout-lesson-link" href="layout-examples.html">04 레이아웃 예제</a></li></ul></nav>
+      <section class="layout-lesson-card"><span class="layout-section-label">핵심 개념</span><h2>열과 행의 트랙을 만들어 배치해요</h2><p>Grid는 컨테이너에서 행과 열을 함께 정의하는 2차원 레이아웃입니다. <code>grid-template-columns</code>로 열 트랙을 만들고, <code>gap</code>으로 행과 열 사이 간격을 지정합니다. 아이템은 여러 칸을 걸쳐 배치할 수도 있습니다.</p><div class="layout-concept-grid"><div class="layout-concept"><strong>트랙</strong><span>그리드의 행 또는 열 하나를 뜻합니다.</span></div><div class="layout-concept"><strong>fr 단위</strong><span>남은 공간을 비율로 나눕니다.</span></div><div class="layout-concept"><strong>span</strong><span>아이템이 차지하는 트랙 수를 지정합니다.</span></div></div></section>
+      <section class="layout-lesson-card" aria-labelledby="practice-title"><span class="layout-section-label">직접 실습</span><h2 id="practice-title">그리드 열과 아이템 배치 바꾸기</h2><div class="layout-practice-grid"><div class="layout-editor">
+        <fieldset class="layout-fieldset"><legend>그리드 트랙</legend><div class="layout-field"><label for="grid-columns">열 수 <output id="grid-columns-value">3열</output></label><input class="layout-range" id="grid-columns" type="range" min="2" max="4" value="3"></div><div class="layout-field"><label for="grid-gap">칸 사이 간격 <output id="grid-gap-value">12px</output></label><input class="layout-range" id="grid-gap" type="range" min="0" max="32" value="12"></div></fieldset>
+        <fieldset class="layout-fieldset"><legend>아이템 배치</legend><div class="layout-field"><label for="grid-span">첫 아이템 두 칸 차지</label><input id="grid-span" type="checkbox"></div><p class="layout-preview-note">열이 2개 이상일 때 첫 아이템을 두 열에 걸쳐 배치합니다.</p></fieldset>
+        <button class="button button-secondary layout-reset" id="layout-reset" type="button">기본값으로 초기화</button>
+      </div><div class="layout-preview"><div class="layout-browser"><div class="layout-browser-bar"><span class="layout-browser-dot"></span><span class="layout-browser-dot"></span><span class="layout-browser-dot"></span><span class="layout-browser-title">Grid 결과 미리보기</span></div><div class="layout-browser-body"><div class="layout-demo-stage" id="layout-demo-stage" aria-live="polite"></div><p class="layout-preview-note" id="layout-preview-note"></p></div></div></div></div></section>
+      <section class="layout-lesson-card"><div class="layout-code-header"><span>현재 설정으로 만든 CSS</span><button class="layout-copy-button" id="layout-copy" type="button">코드 복사</button></div><textarea class="layout-code-output" id="layout-code" rows="16" readonly aria-label="생성된 Grid 코드"></textarea><p class="layout-copy-status" id="layout-copy-status" role="status" aria-live="polite"></p></section>
+      <section class="layout-lesson-card"><span class="layout-section-label">정리</span><h2>기억해 두세요</h2><ul class="layout-summary"><li><code>grid-template-columns</code>와 <code>grid-template-rows</code>로 트랙을 정의합니다.</li><li><code>grid-column: span 2</code>처럼 아이템이 여러 칸을 차지하게 할 수 있습니다.</li></ul></section>
+    </main><div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script src="assets/js/components.js"></script><script src="assets/js/layout-lessons.js"></script>
+</body>
+</html>

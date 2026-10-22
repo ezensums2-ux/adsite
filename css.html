@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | CSS 기초</title>
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "css",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html.html", "children": [] },
+        { "id": "css", "label": "CSS 기초", "href": "css.html", "children": [] },
+        { "id": "layout", "label": "레이아웃", "href": "layout.html", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "href": "animation.html", "children": [] },
+        { "id": "examples", "label": "실전 예제", "href": "examples.html", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <div id="site-header"></div>
+    <main class="layout-page" aria-label="CSS 기초 학습 과정">
+      <section class="layout-intro" aria-labelledby="css-title">
+        <p class="eyebrow">웹 화면을 만드는 스타일 규칙</p>
+        <h1 id="css-title">CSS 기초</h1>
+        <p>선택자와 우선순위를 익히고, 색과 글꼴, 상자, 배경, 배치 규칙을 조절해 화면을 디자인합니다.</p>
+      </section>
+      <section class="layout-course-section" aria-labelledby="css-course-title">
+        <div class="layout-section-heading">
+          <div><p class="layout-kicker">LEARNING PATH</p><h2 id="css-course-title">CSS 강의</h2></div>
+          <span class="layout-course-count">7 lessons</span>
+        </div>
+        <nav aria-label="CSS 기초 강의 목록">
+          <ol class="layout-course-grid">
+            <li><a class="layout-course-link" href="css-basics.html"><span class="course-number">01</span><span class="course-copy"><strong>연결 방법과 선택자</strong><span>HTML에 CSS를 연결하고 스타일 대상을 선택합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="css-priority.html"><span class="course-number">02</span><span class="course-copy"><strong>우선순위와 상속</strong><span>여러 규칙이 만날 때 적용 순서를 비교합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="css-colors-units.html"><span class="course-number">03</span><span class="course-copy"><strong>색상과 단위</strong><span>색상 표기와 크기 단위를 실습합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="css-font-text.html"><span class="course-number">04</span><span class="course-copy"><strong>글꼴과 텍스트</strong><span>읽기 좋은 글꼴과 문장 스타일을 설정합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="css-box-model.html"><span class="course-number">05</span><span class="course-copy"><strong>박스 모델</strong><span>콘텐츠·패딩·테두리·마진의 크기를 비교합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="css-backgrounds.html"><span class="course-number">06</span><span class="course-copy"><strong>배경과 이미지</strong><span>색상과 이미지 배치 방식을 바꿔 봅니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+            <li><a class="layout-course-link" href="css-display-position.html"><span class="course-number">07</span><span class="course-copy"><strong>display와 position</strong><span>표시 흐름과 요소의 위치 기준을 실습합니다.</span></span><span class="course-arrow" aria-hidden="true">→</span></a></li>
+          </ol>
+        </nav>
+      </section>
+      <section class="layout-principle" aria-labelledby="css-principle-title">
+        <div><p class="layout-kicker">STYLE WITH INTENT</p><h2 id="css-principle-title">규칙을 바꾸고 결과를 비교해요</h2></div>
+        <p>CSS는 구조에 시각적 표현을 더합니다. 속성을 하나씩 조절하고 생성된 코드를 읽으며 화면 변화가 어떤 규칙에서 왔는지 익힙니다.</p>
+      </section>
+    </main>
+    <div id="site-footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="assets/js/components.js"></script>
+</body>
+</html>

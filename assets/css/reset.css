@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+p,
+fieldset {
+  margin: 0;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+button,
+input,
+textarea {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}

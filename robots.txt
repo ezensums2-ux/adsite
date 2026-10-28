@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap 위치 지정
-Sitemap: https://ezensums2-ux.github.io/adsite/sitemap.xml
+Sitemap: https://adsite-omega.vercel.app/sitemap.xml

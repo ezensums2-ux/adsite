@@ -1,6 +1,61 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f4f3f7"><title>스타일 노트 | 헤더와 내비게이션 예제</title><link rel="stylesheet" href="assets/css/normalize.css"><link rel="stylesheet" href="assets/css/reset.css"><link rel="stylesheet" href="assets/css/commons.css"><link rel="stylesheet" href="assets/css/examples.css"><script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"examples","menu":[{"id":"tools","label":"디자인 도구","href":"index.html","children":[]},{"id":"html","label":"HTML 기초","href":"html-basic.html","children":[]},{"id":"css","label":"CSS 기초","children":[]},{"id":"layout","label":"레이아웃","href":"layout.html","children":[]},{"id":"animation","label":"CSS 애니메이션","href":"animation.html","children":[]},{"id":"examples","label":"실전 예제","href":"examples.html","children":[]}],"footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | 헤더와 내비게이션 실전 예제</title>
+
+  <!-- SEO 메타 태그 -->
+  <meta name="title" content="스타일 노트 | 헤더와 내비게이션 실전 예제">
+  <meta name="description" content="실전 헤더 및 내비게이션(GNB) UI 디자인과 반응형 마크업 예제. 브랜드 로고, 메뉴 링크 정렬, 테마 및 화면 너비별 반응형 레이아웃 스타일을 직접 실습하고 HTML/CSS 코드를 생성해 보세요.">
+  <meta name="keywords" content="헤더 디자인, 내비게이션 바, GNB, 헤더 UI, 반응형 헤더, CSS 내비게이션, 모바일 메뉴, 프론트엔드 예제, 웹 퍼블리싱, 스타일 노트">
+  <meta name="author" content="스타일 노트">
+  <meta name="robots" content="index, follow">
+
+  <!-- 대표 URL (Canonical) -->
+  <link rel="canonical" href="https://adsite-omega.vercel.app/example-header-navigation.html">
+
+  <!-- Open Graph (SNS 및 메신저 공유) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adsite-omega.vercel.app/example-header-navigation.html">
+  <meta property="og:title" content="스타일 노트 | 헤더와 내비게이션 실전 예제">
+  <meta property="og:description" content="헤더와 내비게이션의 링크 정렬, 테마, 화면 폭 변화에 따른 반응형 배치를 직접 실습하고 코드를 확인해 보세요.">
+  <meta property="og:site_name" content="스타일 노트">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://adsite-omega.vercel.app/example-header-navigation.html">
+  <meta name="twitter:title" content="스타일 노트 | 헤더와 내비게이션 실전 예제">
+  <meta name="twitter:description" content="헤더와 내비게이션의 링크 정렬, 테마, 화면 폭 변화에 따른 반응형 배치를 직접 실습하고 코드를 확인해 보세요.">
+
+  <!-- 검색 엔진 사이트 소유 확인 -->
+  <meta name="google-site-verification" content="CBbxs-rsVv-xvoq7vKipHrWKLvxnzN3EoOihLzTt1Rw" />
+  <meta name="naver-site-verification" content="12d9cc10f99d9741d69b26d574cde9fd4d831258" />
+
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/examples.css">
+  <script id="site-config" type="application/json">
+    {
+      "siteName": "스타일 노트",
+      "homeHref": "index.html",
+      "activePage": "examples",
+      "menu": [
+        { "id": "tools", "label": "디자인 도구", "href": "index.html", "children": [] },
+        { "id": "html", "label": "HTML 기초", "href": "html-basic.html", "children": [] },
+        { "id": "css", "label": "CSS 기초", "children": [] },
+        { "id": "layout", "label": "레이아웃", "href": "layout.html", "children": [] },
+        { "id": "animation", "label": "CSS 애니메이션", "href": "animation.html", "children": [] },
+        { "id": "examples", "label": "실전 예제", "href": "examples.html", "children": [] }
+      ],
+      "footerDescription": "직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.",
+      "footerPrivacy": "입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."
+    }
+  </script>
+</head>
 <body><div class="page-shell"><div id="site-header"></div><main class="examples-lesson-page" data-example-demo="navigation" aria-label="헤더와 내비게이션 예제 실습">
   <section class="examples-page-intro"><p class="eyebrow">실전 예제 · 03</p><h1>헤더와 내비게이션</h1><p>브랜드와 핵심 링크, 행동 버튼을 정리하고 가상 화면 폭에 맞게 배치합니다.</p></section>
   <nav class="examples-lesson-nav" aria-label="실전 예제 학습 목록"><div class="examples-lesson-nav-heading"><span>실전 예제</span><a href="examples.html">전체 목록</a></div><ul class="examples-lesson-nav-list"><li><a class="examples-lesson-link" href="example-buttons.html">01 버튼</a></li><li><a class="examples-lesson-link" href="example-cards.html">02 카드</a></li><li><a class="examples-lesson-link is-current" href="example-header-navigation.html" aria-current="page">03 헤더와 내비게이션</a></li><li><a class="examples-lesson-link" href="example-forms.html">04 입력 폼</a></li><li><a class="examples-lesson-link" href="example-content-sections.html">05 소개·콘텐츠 섹션</a></li></ul></nav>

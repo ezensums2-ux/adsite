@@ -475,11 +475,27 @@ a:focus-visible {
   min-height: 140px;
 }
 
+.coupang-banner ins {
+  display: block !important;
+  text-decoration: none;
+  width: 100%;
+}
+
 .coupang-banner iframe {
   max-width: 100%;
   border: 0;
   display: block;
   margin: 0 auto;
+}
+
+.coupang-banner--pc iframe {
+  width: 680px;
+  height: 140px;
+}
+
+.coupang-banner--mo iframe {
+  width: 280px;
+  height: 140px;
 }
 
 /* PC 버전: 기본 노출, 모바일 버전: 기본 숨김 */

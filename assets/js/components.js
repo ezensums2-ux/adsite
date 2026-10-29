@@ -228,9 +228,107 @@
     }
   }
 
-  // 공통 컴포넌트는 JSON 설정 데이터를 읽어 헤더와 푸터를 한 번에 구성합니다.
+  // 쿠팡 파트너스 와이드 배너 및 마퀴 안내 공통 컴포넌트 마크업
+  function renderCoupangBanner() {
+    return `<aside class="coupang-banner-area" aria-label="쿠팡 파트너스 배너">
+      <!-- PC 버전 배너 (너비 680px) -->
+      <div class="coupang-banner coupang-banner--pc" id="coupang-banner-pc"></div>
+
+      <!-- 모바일 버전 배너 (너비 280px) -->
+      <div class="coupang-banner coupang-banner--mo" id="coupang-banner-mo"></div>
+
+      <!-- 쿠팡 파트너스 안내 문구 (오른쪽에서 왼쪽으로 흐르는 마퀴 효과, 폰트 10px) -->
+      <div class="coupang-notice-bar" aria-label="쿠팡 파트너스 안내 문구">
+        <div class="coupang-notice-track">
+          <div class="coupang-notice-content">
+            <span class="coupang-notice-item">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+            <span class="coupang-notice-dot" aria-hidden="true">&bull;</span>
+            <span class="coupang-notice-item" aria-hidden="true">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+            <span class="coupang-notice-dot" aria-hidden="true">&bull;</span>
+          </div>
+          <div class="coupang-notice-content" aria-hidden="true">
+            <span class="coupang-notice-item">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+            <span class="coupang-notice-dot">&bull;</span>
+            <span class="coupang-notice-item">이 사이트는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+            <span class="coupang-notice-dot">&bull;</span>
+          </div>
+        </div>
+      </div>
+    </aside>`;
+  }
+
+  // 쿠팡 파트너스 g.js 동적 로드 및 배너 초기화
+  function initCoupangBanner() {
+    const pcContainer = document.getElementById('coupang-banner-pc');
+    const moContainer = document.getElementById('coupang-banner-mo');
+    if (!pcContainer || !moContainer) return;
+    if (pcContainer.children.length > 0 || moContainer.children.length > 0) return;
+
+    function buildAds() {
+      if (typeof PartnersCoupang === 'undefined' || !PartnersCoupang.G) return;
+      try {
+        new PartnersCoupang.G({
+          id: 1044377,
+          template: "carousel",
+          trackingCode: "AF3447005",
+          width: "680",
+          height: "140",
+          tsource: "",
+          container: pcContainer
+        });
+      } catch (err) {
+        console.error('쿠팡 파트너스 PC 배너 초기화 오류:', err);
+      }
+
+      try {
+        new PartnersCoupang.G({
+          id: 1044385,
+          template: "carousel",
+          trackingCode: "AF3447005",
+          width: "280",
+          height: "140",
+          tsource: "",
+          container: moContainer
+        });
+      } catch (err) {
+        console.error('쿠팡 파트너스 모바일 배너 초기화 오류:', err);
+      }
+    }
+
+    if (window.PartnersCoupang && window.PartnersCoupang.G) {
+      buildAds();
+    } else {
+      const existingScript = document.querySelector('script[src*="ads-partners.coupang.com/g.js"]');
+      if (existingScript) {
+        existingScript.addEventListener('load', buildAds);
+      } else {
+        const script = document.createElement('script');
+        script.src = 'https://ads-partners.coupang.com/g.js';
+        script.async = true;
+        script.onload = buildAds;
+        script.onerror = function () {
+          console.error('쿠팡 파트너스 g.js 스크립트 로드 실패');
+        };
+        document.head.appendChild(script);
+      }
+    }
+  }
+
+  // 공통 컴포넌트는 JSON 설정 데이터를 읽어 헤더, 배너, 푸터를 한 번에 구성합니다.
   function mount(config) {
     $('#site-header').html(renderHeader(config));
+
+    // 공통 광고 배너 컴포넌트 마운트
+    const showBanner = config.showCoupangBanner !== false;
+    if (showBanner) {
+      if ($('#site-ad').length) {
+        $('#site-ad').html(renderCoupangBanner());
+      } else {
+        $('#site-header').after('<div id="site-ad">' + renderCoupangBanner() + '</div>');
+      }
+      initCoupangBanner();
+    }
+
     $('#site-footer').html(renderFooter(config));
   }
 

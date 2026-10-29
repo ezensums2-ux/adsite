@@ -453,3 +453,116 @@ a:focus-visible {
     grid-row: auto;
   }
 }
+
+
+/* ==========================================================================
+   쿠팡 파트너스 와이드 배너 & 마퀴 공지
+   ========================================================================== */
+.coupang-banner-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 18px 0 8px;
+}
+
+.coupang-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 140px;
+}
+
+.coupang-banner iframe {
+  max-width: 100%;
+  border: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+/* PC 버전: 기본 노출, 모바일 버전: 기본 숨김 */
+.coupang-banner--pc {
+  display: flex;
+}
+
+.coupang-banner--mo {
+  display: none !important;
+}
+
+/* 768px 이하 모바일 화면 */
+@media (max-width: 768px) {
+  .coupang-banner-area {
+    margin: 12px 0 6px;
+  }
+
+  .coupang-banner--pc {
+    display: none !important;
+  }
+
+  .coupang-banner--mo {
+    display: flex !important;
+  }
+}
+
+/* 배너 하단 마퀴(흐르는 텍스트) 안내 영역 */
+.coupang-notice-bar {
+  width: 100%;
+  max-width: 680px;
+  margin-top: 6px;
+  padding: 4px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+}
+
+@media (max-width: 768px) {
+  .coupang-notice-bar {
+    max-width: 280px;
+  }
+}
+
+.coupang-notice-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: coupangNoticeScroll 24s linear infinite;
+  will-change: transform;
+}
+
+.coupang-notice-bar:hover .coupang-notice-track {
+  animation-play-state: paused;
+}
+
+.coupang-notice-content {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.coupang-notice-item {
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--muted, #777486);
+  letter-spacing: -0.2px;
+  flex-shrink: 0;
+}
+
+.coupang-notice-dot {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--soft-muted, #a19eac);
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+
+@keyframes coupangNoticeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

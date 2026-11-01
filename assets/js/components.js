@@ -21,7 +21,7 @@
 
   // 전체 페이지에서 공통으로 사용하는 상단 메뉴와 하위 메뉴입니다.
   function createPrimaryMenu() {
-    const item = (id, label, href) => href ? { id, label, href } : { id, label };
+    const item = (id, label, href, extra = {}) => href ? { id, label, href, ...extra } : { id, label, ...extra };
     const htmlPages = [
       ['html-basic', '기본 문서 구조', 'html-basic.html'],
       ['html-text', '제목과 문단', 'html-text.html'],
@@ -41,78 +41,99 @@
     ].map(([id, label, href]) => item(id, label, href));
     const anchors = (prefix, entries) => entries.map(([id, label, hash]) => item(id, label, hash ? `${prefix}${hash}` : undefined));
     return [
-      { id: 'design', label: '디자인 도구', children: anchors('index.html', [
-        ['tools', '색상 코드', '#panel-color'], ['gradient', '그라데이션 생성기', '#panel-gradient'],
-        ['shadow', '그림자 생성기', '#panel-shadow'], ['corners', '모서리 생성기', '#panel-corners'],
-        ['borders', '테두리 생성기', '#panel-borders']
-      ]) },
-      { id: 'image', label: '이미지 도구', children: anchors('image-tools.html', [
-        ['image-compress', '이미지 압축', '#compress'], ['image-resize', '이미지 크기 조절', '#resize'],
-        ['image-crop', '이미지 잘라내기', '#crop'], ['image-convert', '이미지 형식 변환', '#convert'],
-        ['image-rotate', '이미지 회전', '#rotate'], ['image-flip', '이미지 반전', '#flip'],
-        ['image-quality', '이미지 품질 조절', '#quality']
-      ]) },
-      { id: 'html', label: 'HTML 기초', children: [
-        item('html-overview', 'HTML 기초 전체 보기', 'html.html'),
-        ...htmlPages
-      ] },
-      { id: 'css', label: 'CSS 기초', children: [
-        item('css-overview', 'CSS 기초 전체 보기', 'css.html'),
-        ...cssPages
-      ] },
-      { id: 'layout', label: '레이아웃', children: [
-        item('layout-overview', '레이아웃 전체 보기', 'layout.html'),
-        item('layout-flexbox', 'Flexbox 실습', 'layout-flexbox.html'),
-        item('layout-grid', 'Grid 실습', 'layout-grid.html'),
-        item('layout-responsive', '반응형과 미디어 쿼리', 'layout-responsive.html'),
-        item('layout-examples', '레이아웃 예제', 'layout-examples.html')
-      ] },
-      { id: 'animation', label: 'CSS 애니메이션', children: [
-        item('animation-overview', '애니메이션 전체 보기', 'animation.html'),
-        item('animation-transform', 'Transform', 'animation-transform.html'),
-        item('animation-transition', 'Transition', 'animation-transition.html'),
-        item('animation-keyframes', 'Keyframes', 'animation-keyframes.html'),
-        item('animation-examples', '효과 예제', 'animation-examples.html')
-      ] },
-      { id: 'javascript', label: 'JavaScript 기초', children: anchors('javascript.html', [
-        ['js-intro', 'JavaScript 소개', '#intro'], ['js-variables', '변수와 자료형', '#variables'],
-        ['js-operators', '연산자', '#operators'], ['js-conditionals', '조건문', '#conditionals'],
-        ['js-loops', '반복문', '#loops'], ['js-functions', '함수', '#functions'],
-        ['js-arrays', '배열', '#arrays'], ['js-objects', '객체', '#objects'],
-        ['js-dom', 'DOM 선택', '#dom'], ['js-events', '이벤트', '#events'],
-        ['js-html-css', 'HTML / CSS 변경', '#html-css'], ['js-practice', '간단한 실습', '#practice']
-      ]) },
-      { id: 'components', label: 'UI 컴포넌트', children: [
-        item('component-button', '버튼', 'ui-components.html#button'),
-        item('component-card', '카드', 'ui-components.html#card'),
-        item('component-badge', '배지', 'ui-components.html#badge'),
-        item('component-tabs', '탭', 'ui-components.html#tabs'),
-        item('component-accordion', '아코디언', 'ui-components.html#accordion'),
-        item('component-modal', '모달', 'ui-components.html#modal'),
-        item('component-dropdown', '드롭다운', 'ui-components.html#dropdown'),
-        item('component-tooltip', '툴팁', 'ui-components.html#tooltip'),
-        item('component-toggle', '토글 스위치', 'ui-components.html#toggle'),
-        item('component-progress', '프로그레스 바', 'ui-components.html#progress'),
-        item('component-alert', '알림 메시지', 'ui-components.html#alert'),
-        item('component-loading', '로딩 UI', 'ui-components.html#loading')
-      ] },
-      { id: 'accessibility', label: '웹 접근성', children: anchors('accessibility.html', [
-        ['a11y-intro', '웹 접근성이란?', '#intro'], ['a11y-alt', '이미지 alt', '#alt'],
-        ['a11y-controls', 'Button과 Link', '#controls'], ['a11y-labels', 'Label과 Input', '#labels'],
-        ['a11y-keyboard', '키보드 접근성', '#keyboard'], ['a11y-focus', 'Focus', '#focus'],
-        ['a11y-contrast', '색상 대비', '#contrast'], ['a11y-heading', 'Heading 구조', '#heading'],
-        ['a11y-aria', 'ARIA 기초', '#aria'], ['a11y-checklist', '접근성 체크리스트', '#checklist']
-      ]) },
-      { id: 'developer-tools', label: '개발 도구', children: anchors('dev-tools.html', [
-        ['tool-px-rem', 'PX → REM 변환기', '#px-rem'], ['tool-rem-px', 'REM → PX 변환기', '#rem-px'],
-        ['tool-clamp', 'CSS Clamp 생성기', '#clamp'], ['tool-aspect', 'Aspect Ratio 계산기', '#aspect-ratio'],
-        ['tool-url', 'URL Encode / Decode', '#url'],
-        ['tool-base64', 'Base64 변환', '#base64'],
-        ['tool-json', 'JSON Formatter', '#json'],
-        ['tool-lorem', 'Lorem Ipsum 생성기', '#lorem'],
-        ['tool-minify', 'CSS Minify', '#minify']
-      ]) },
-      { id: 'examples', label: '실전 예제', children: [
+      {
+        id: 'design', label: '디자인 도구', children: anchors('index.html', [
+          ['tools', '색상 코드', '#panel-color'], ['gradient', '그라데이션 생성기', '#panel-gradient'],
+          ['shadow', '그림자 생성기', '#panel-shadow'], ['corners', '모서리 생성기', '#panel-corners'],
+          ['borders', '테두리 생성기', '#panel-borders']
+        ])
+      },
+      {
+        id: 'image', label: '이미지 도구', children: anchors('image-tools.html', [
+          ['image-compress', '이미지 압축', '#compress'], ['image-resize', '이미지 크기 조절', '#resize'],
+          ['image-crop', '이미지 잘라내기', '#crop'], ['image-convert', '이미지 형식 변환', '#convert'],
+          ['image-rotate', '이미지 회전', '#rotate'], ['image-flip', '이미지 반전', '#flip'],
+          ['image-quality', '이미지 품질 조절', '#quality']
+        ])
+      },
+      {
+        id: 'html', label: 'HTML 기초', children: [
+          item('html-overview', 'HTML 기초 전체 보기', 'html.html'),
+          ...htmlPages
+        ]
+      },
+      {
+        id: 'css', label: 'CSS 기초', children: [
+          item('css-overview', 'CSS 기초 전체 보기', 'css.html'),
+          ...cssPages
+        ]
+      },
+      {
+        id: 'layout', label: '레이아웃', children: [
+          item('layout-overview', '레이아웃 전체 보기', 'layout.html'),
+          item('layout-flexbox', 'Flexbox 실습', 'layout-flexbox.html'),
+          item('layout-grid', 'Grid 실습', 'layout-grid.html'),
+          item('layout-responsive', '반응형과 미디어 쿼리', 'layout-responsive.html'),
+          item('layout-examples', '레이아웃 예제', 'layout-examples.html')
+        ]
+      },
+      {
+        id: 'animation', label: 'CSS 애니메이션', children: [
+          item('animation-overview', '애니메이션 전체 보기', 'animation.html'),
+          item('animation-transform', 'Transform', 'animation-transform.html'),
+          item('animation-transition', 'Transition', 'animation-transition.html'),
+          item('animation-keyframes', 'Keyframes', 'animation-keyframes.html'),
+          item('animation-examples', '효과 예제', 'animation-examples.html')
+        ]
+      },
+      {
+        id: 'javascript', label: 'JavaScript 기초', children: anchors('javascript.html', [
+          ['js-intro', 'JavaScript 소개', '#intro'], ['js-variables', '변수와 자료형', '#variables'],
+          ['js-operators', '연산자', '#operators'], ['js-conditionals', '조건문', '#conditionals'],
+          ['js-loops', '반복문', '#loops'], ['js-functions', '함수', '#functions'],
+          ['js-arrays', '배열', '#arrays'], ['js-objects', '객체', '#objects'],
+          ['js-dom', 'DOM 선택', '#dom'], ['js-events', '이벤트', '#events'],
+          ['js-html-css', 'HTML / CSS 변경', '#html-css'], ['js-practice', '간단한 실습', '#practice']
+        ])
+      },
+      {
+        id: 'components', label: 'UI 컴포넌트', children: [
+          item('component-button', '버튼', 'ui-components.html#button'),
+          item('component-card', '카드', 'ui-components.html#card'),
+          item('component-badge', '배지', 'ui-components.html#badge'),
+          item('component-tabs', '탭', 'ui-components.html#tabs'),
+          item('component-accordion', '아코디언', 'ui-components.html#accordion'),
+          item('component-modal', '모달', 'ui-components.html#modal'),
+          item('component-dropdown', '드롭다운', 'ui-components.html#dropdown'),
+          item('component-tooltip', '툴팁', 'ui-components.html#tooltip'),
+          item('component-toggle', '토글 스위치', 'ui-components.html#toggle'),
+          item('component-progress', '프로그레스 바', 'ui-components.html#progress'),
+          item('component-alert', '알림 메시지', 'ui-components.html#alert'),
+          item('component-loading', '로딩 UI', 'ui-components.html#loading')
+        ]
+      },
+      {
+        id: 'accessibility', label: '웹 접근성', children: anchors('accessibility.html', [
+          ['a11y-intro', '웹 접근성이란?', '#intro'], ['a11y-alt', '이미지 alt', '#alt'],
+          ['a11y-controls', 'Button과 Link', '#controls'], ['a11y-labels', 'Label과 Input', '#labels'],
+          ['a11y-keyboard', '키보드 접근성', '#keyboard'], ['a11y-focus', 'Focus', '#focus'],
+          ['a11y-contrast', '색상 대비', '#contrast'], ['a11y-heading', 'Heading 구조', '#heading'],
+          ['a11y-aria', 'ARIA 기초', '#aria'], ['a11y-checklist', '접근성 체크리스트', '#checklist']
+        ])
+      },
+      {
+        id: 'developer-tools', label: '개발 도구', children: anchors('dev-tools.html', [
+          ['tool-px-rem', 'PX → REM 변환기', '#px-rem'], ['tool-rem-px', 'REM → PX 변환기', '#rem-px'],
+          ['tool-clamp', 'CSS Clamp 생성기', '#clamp'], ['tool-aspect', 'Aspect Ratio 계산기', '#aspect-ratio'],
+          ['tool-url', 'URL Encode / Decode', '#url'],
+          ['tool-base64', 'Base64 변환', '#base64'],
+          ['tool-json', 'JSON Formatter', '#json'],
+          ['tool-lorem', 'Lorem Ipsum 생성기', '#lorem'],
+          ['tool-minify', 'CSS Minify', '#minify']
+        ])
+      },
+      {
+        id: 'examples', label: '실전 예제', children: [
           item('examples-overview', '실전 예제 전체 보기', 'examples.html'),
           item('example-buttons', '버튼', 'example-buttons.html'),
           item('example-cards', '카드', 'example-cards.html'),
@@ -124,7 +145,9 @@
           item('example-login', 'Login', 'example-patterns.html#login'),
           item('example-portfolio', 'Portfolio', 'example-patterns.html#portfolio'),
           item('example-landing', 'Landing Page', 'example-patterns.html#landing')
-        ] }
+        ]
+      },
+  { id: 'game', label: '🎮 게임하기', href: 'game.html', point: true }
     ];
   }
 
@@ -136,10 +159,12 @@
       let trigger;
 
       if (item.href) {
-        trigger = `<a class="site-nav-link${current ? ' is-current' : ''}" data-menu-id="${escapeHTML(item.id)}" href="${escapeHTML(resolveMenuHref(item.href))}"${current ? ' aria-current="page"' : ''}>${escapeHTML(item.label)}</a>`;
+        const pointClass = item.point ? ' menu-point-color' : '';
+        trigger = `<a class="site-nav-link${current ? ' is-current' : ''}${pointClass}" data-menu-id="${escapeHTML(item.id)}" href="${escapeHTML(resolveMenuHref(item.href))}"${current ? ' aria-current="page"' : ''}>${escapeHTML(item.label)}</a>`;
       } else if (children.length) {
+        const pointClass = item.point ? ' menu-point-color' : '';
         const status = item.status ? `<span class="menu-status">${escapeHTML(item.status)}</span>` : '';
-        trigger = `<button class="menu-group-toggle" type="button" aria-expanded="false" aria-controls="${escapeHTML(submenuId)}"><span>${escapeHTML(item.label)}</span>${status}<span class="submenu-caret" aria-hidden="true">⌄</span></button>`;
+        trigger = `<button class="menu-group-toggle${pointClass}" type="button" aria-expanded="false" aria-controls="${escapeHTML(submenuId)}"><span>${escapeHTML(item.label)}</span>${status}<span class="submenu-caret" aria-hidden="true">⌄</span></button>`;
       } else {
         trigger = `<span class="menu-static" aria-disabled="true"><span>${escapeHTML(item.label)}</span><span class="menu-status">${escapeHTML(item.status || '준비 중')}</span></span>`;
       }
@@ -175,7 +200,8 @@
       'css.html': 'css-overview',
       'layout.html': 'layout-overview',
       'animation.html': 'animation-overview',
-      'examples.html': 'examples-overview'
+      'examples.html': 'examples-overview',
+      'game.html': 'game'
     };
     return hashPages[pageName]?.[section] || overviewPages[pageName] || config.activePage;
   }

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f7">
+  <title>스타일 노트 | 3D 길 건너기 게임 (Crossy Road)</title>
+
+  <!-- SEO 메타 태그 -->
+  <meta name="title" content="스타일 노트 | 3D 길 건너기 게임 (Crossy Road)">
+  <meta name="description"
+    content="Three.js로 구현된 3D 길 건너기(Crossy Road) 아케이드 게임을 브라우저에서 직접 플레이해 보세요. 직교 카메라(Orthographic), 절차적 무한 맵 생성, 충돌 감지 로직을 체험할 수 있습니다.">
+  <meta name="keywords" content="Crossy Road, 길 건너기 게임, Three.js 게임, WebGL 3D, 웹 게임, 자바스크립트 게임, 프론트엔드, 스타일 노트">
+  <meta name="author" content="스타일 노트">
+  <meta name="robots" content="index, follow">
+
+  <!-- 대표 URL (Canonical) -->
+  <link rel="canonical" href="https://adsite-omega.vercel.app/game.html">
+
+  <!-- Open Graph (SNS 및 메신저 공유) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adsite-omega.vercel.app/game.html">
+  <meta property="og:title" content="스타일 노트 | 3D 길 건너기 게임 (Crossy Road)">
+  <meta property="og:description"
+    content="차량과 트럭을 피해 안전하게 도로를 건너보세요! Three.js 기반의 3D 아케이드 게임.">
+  <meta property="og:site_name" content="스타일 노트">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://adsite-omega.vercel.app/game.html">
+  <meta name="twitter:title" content="스타일 노트 | 3D 길 건너기 게임 (Crossy Road)">
+  <meta name="twitter:description"
+    content="차량과 트럭을 피해 안전하게 도로를 건너보세요! Three.js 기반의 3D 아케이드 게임.">
+
+  <!-- 검색 엔진 사이트 소유 확인 -->
+  <meta name="google-site-verification" content="CBbxs-rsVv-xvoq7vKipHrWKLvxnzN3EoOihLzTt1Rw" />
+  <meta name="naver-site-verification" content="12d9cc10f99d9741d69b26d574cde9fd4d831258" />
+
+  <link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/commons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/crossy-road.css">
+</head>
+<body>
+  <div class="page-shell">
+    <!-- 공통 헤더 네비게이션 -->
+    <div id="site-header"></div>
+    <!-- 공통 컴포넌트: 쿠팡 파트너스 배너 영역 -->
+    <div id="site-ad"></div>
+
+    <main class="game-main">
+      <!-- 페이지 소개 영역 -->
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">3D WEB GAME · THREE.JS</p>
+        <h1 id="page-title">3D 길 건너기 (Crossy Road)</h1>
+        <p>달려오는 승용차와 트럭을 피해 최대한 멀리 전진해 보세요! 키보드, 마우스, 화면 버튼 또는 터치 스와이프로 조작할 수 있습니다.</p>
+      </section>
+
+      <div class="game-container">
+        <!-- 게임 화면 뷰포트 카드 -->
+        <div class="game-card" role="region" aria-label="3D 길 건너기 게임 화면">
+          <div class="game-viewport">
+            <!-- Three.js 캔버스가 삽입될 컨테이너 -->
+            <div id="crossy-canvas-container"></div>
+
+            <!-- 헤드업 디스플레이 (HUD) -->
+            <div class="game-hud">
+              <div class="score-board">
+                <div class="current-score-box" aria-live="polite">
+                  <span class="score-label">SCORE</span>
+                  <span class="score-number" id="crossy-score">0</span>
+                </div>
+                <div class="high-score-box" title="최고 기록">
+                  <span class="trophy" aria-hidden="true">🏆</span>
+                  <span>BEST</span>
+                  <span class="high-score-number" id="crossy-high-score">0</span>
+                </div>
+              </div>
+
+              <!-- 상단 조작 버튼 툴바 -->
+              <div class="game-toolbar">
+                <button class="hud-btn" id="btn-sound-toggle" type="button" aria-label="소리 켜기/끄기" title="소리 토글">🔊</button>
+                <button class="hud-btn" id="btn-quick-reset" type="button" aria-label="게임 재시작" title="다시 시작">↺</button>
+                <button class="hud-btn" id="btn-fullscreen" type="button" aria-label="전체화면" title="전체화면">⛶</button>
+              </div>
+            </div>
+
+            <!-- 온스크린 가상 조작 버튼 (모바일 및 터치 디바이스) -->
+            <div class="virtual-dpad" aria-label="방향 조작 패드">
+              <button class="dpad-btn dpad-btn--up" id="dpad-up" type="button" aria-label="앞으로 이동">▲</button>
+              <button class="dpad-btn dpad-btn--left" id="dpad-left" type="button" aria-label="왼쪽으로 이동">◀</button>
+              <button class="dpad-btn dpad-btn--right" id="dpad-right" type="button" aria-label="오른쪽으로 이동">▶</button>
+              <button class="dpad-btn dpad-btn--down" id="dpad-down" type="button" aria-label="뒤로 이동">▼</button>
+            </div>
+
+            <!-- PC 키보드 조작 안내 힌트 -->
+            <div class="keyboard-hint" aria-hidden="true">
+              <span>조작:</span>
+              <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>
+              <span>또는</span>
+              <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>
+            </div>
+
+            <!-- 게임 오버 팝업 오버레이 -->
+            <div class="game-overlay" id="game-over-overlay" role="dialog" aria-modal="true" aria-labelledby="game-over-title">
+              <div class="game-modal">
+                <span class="game-modal-badge" id="modal-record-badge" style="display: none;">🎉 NEW RECORD!</span>
+                <h2 class="game-modal-title" id="game-over-title">GAME OVER</h2>
+                <div class="modal-scores">
+                  <div class="modal-score-item highlight">
+                    <span class="label">최종 점수</span>
+                    <span class="value" id="modal-final-score">0</span>
+                  </div>
+                  <div class="modal-score-item">
+                    <span class="label">최고 점수</span>
+                    <span class="value" id="modal-best-score">0</span>
+                  </div>
+                </div>
+                <button class="game-modal-btn" id="btn-retry" type="button">다시 도전하기</button>
+                <p class="modal-subtext">스페이스바(Space) 또는 엔터(Enter) 키로 즉시 재시작할 수 있습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 게임 가이드 및 기술 분석 카드 그리드 -->
+        <section class="game-info-grid" aria-label="게임 가이드 및 기술 분석">
+          <article class="info-card">
+            <h3>🎮 게임 조작 방법</h3>
+            <p>다양한 입력 장치로 손쉽게 플레이할 수 있습니다:</p>
+            <ul>
+              <li><strong>키보드 조작:</strong> 방향키(<kbd>↑</kbd>, <kbd>↓</kbd>, <kbd>←</kbd>, <kbd>→</kbd>) 또는 <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd> 키를 눌러 상하좌우로 이동합니다.</li>
+              <li><strong>모바일 터치 스와이프:</strong> 화면을 위/아래/좌/우로 가볍게 밀거나, 화면을 탭하면 앞으로 전진합니다.</li>
+              <li><strong>온스크린 가상 패드:</strong> 화면 우측 하단의 방향 버튼(▲, ▼, ◀, ▶)을 터치하거나 클릭하여 이동할 수 있습니다.</li>
+              <li><strong>나무 장애물:</strong> 잔디밭의 나무가 있는 칸은 지나갈 수 없으니 우회해서 건너야 합니다.</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>⚙️ Three.js 기술 원리 분석</h3>
+            <p>CodePen 원작의 핵심 3D 그래픽 기법들을 분석하여 구현했습니다:</p>
+            <ul>
+              <li><strong>직교 투영 카메라 (OrthographicCamera):</strong> 원근 왜곡을 없애고 쿼터뷰 각도(-140, -320, 310)를 설정해 복셀 특유의 정갈한 아이소메트릭 시점을 연출합니다.</li>
+              <li><strong>절차적 무한 맵 생성 (Procedural Lanes):</strong> 플레이어 전진 시 잔디(Forest), 승용차 도로(Car), 트럭 도로(Truck)를 동적으로 이어 붙이고 지나간 레인은 메모리에서 해제합니다.</li>
+              <li><strong>AABB 충돌 판정 &amp; Squish 연출:</strong> 차량의 가로/세로 바운딩 박스와 플레이어 위치를 매 프레임 계산해 충돌 시 닭이 납작해지는 애니메이션 효과를 부여합니다.</li>
+              <li><strong>Web Audio API 사운드:</strong> 외부 음원 로딩 없이 자바스크립트 신디사이저로 점프, 충돌, 신기록 효과음을 즉시 생성합니다.</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Three.js</span>
+              <span class="tech-tag">WebGL</span>
+              <span class="tech-tag">OrthographicCamera</span>
+              <span class="tech-tag">Voxel Low-Poly</span>
+              <span class="tech-tag">Web Audio API</span>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>💡 원작 크레딧 &amp; 출처</h3>
+            <p>본 미니게임은 <strong>Hunor Márton Borbély</strong>님의 유명한 CodePen 프로젝트 <em>"Crossy Road with three.js"</em>를 분석하여 웹 표준 및 반응형 환경에 맞추어 최적화 재구현한 것입니다.</p>
+            <ul>
+              <li><strong>원본 CodePen:</strong> <a href="https://codepen.io/HunorMarton/pen/JwWLJo" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">HunorMarton / pen / JwWLJo</a></li>
+              <li><strong>게임 엔진:</strong> Three.js r128 3D Library</li>
+              <li><strong>로컬 스토리지:</strong> 최고 점수(High Score)는 브라우저에 안전하게 저장됩니다.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <!-- 공통 푸터 영역 -->
+    <div id="site-footer"></div>
+  </div>
+
+  <!-- 사이트 설정 JSON -->
+  <script id="site-config" type="application/json">{"siteName":"스타일 노트","homeHref":"index.html","activePage":"game","footerDescription":"직접 바꾸고 바로 확인하며 HTML과 CSS를 익혀보세요.","footerPrivacy":"입력한 설정은 서버로 전송되거나 저장되지 않으며, 현재 페이지에서만 처리됩니다."}</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- Three.js 3D 라이브러리 CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/crossy-road.js"></script>
+</body>
+</html>
+
